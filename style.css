@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f9f9f9;
+}
+
+.formcard {
+    border-radius: 20px;
+    
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: 1% 5% 8% 5%;
+}

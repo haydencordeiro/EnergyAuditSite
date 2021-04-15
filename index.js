@@ -71,7 +71,7 @@ function CalculateValues({RatedCap,
 
 
 var data={
-     "RatedCap":RatedCap,
+    "RatedCap":RatedCap,
     "DailyUsage":DailyUsage,
     "DaysPerMonth":DaysPerMonth,
     "NoOfLuminaries":NoOfLuminaries,
@@ -84,11 +84,17 @@ var data={
 calc=CalculateValues(data);
 
 console.log("Bill",calc["Bill"]);
+document.getElementById('monthlyBill').value = calc["Bill"];
 console.log("RI",RI);
+// document.getElementById('roomIndex').value = RI;
 console.log("N",N);
+// document.getElementById('fittingNumber').value = N;
 console.log("Eav",Eav);
+// document.getElementById('eav').value = Eav;
 console.log("LE",calc["LE"]);
+document.getElementById('luminousEfficiency').value = calc["LE"];
 console.log("W/m2",calc["W/m2"]);
+document.getElementById('wpm2').value = calc["W/m2"];
 console.log("EPI",calc["EPI"]);
-
+document.getElementById('epi').value = calc["EPI"];
 }

@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="card">
+            <div class="card formcard">
                 <div class="card-body">
                     <h5 class="card-title">Pre Audit Detials</h5>
                     <form>
@@ -113,7 +113,7 @@
                                 <input type="number" class="form-control" id="Lumens" name="Lumens">
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="RatedCap" class="form-label">RatedCap</label>
+                                <label for="RatedCap" class="form-label">Rated Capacity</label>
                                 <input type="number" class="form-control" id="RatedCap" name="RatedCap">
                             </div>
                         </div>
@@ -135,6 +135,58 @@
 
                         </div>
                         <button type="button" class="btn btn-primary" onclick="main()">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center output">
+            <div class="card formcard">
+                <div class="card-body">
+                    <h4 class="card-title">Calculated Results</h4>
+                    <hr>
+                    <form>
+                        <!-- <h6>Fitting Specifications</h6>
+                        <div class="row">
+                            <div class="mb-3 col-md-4">
+                                <label for="roomIndex" class="form-label">Room Index</label>
+                                <input type="number" class="form-control" id="roomIndex" name="roomIndex" disabled>
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="fittingNumber" class="form-label">No of Fitting</label>
+                                <input type="number" class="form-control" id="fittingNumber" name="fittingNumber" disabled>
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="eav" class="form-label">EAV</label>
+                                <input type="number" class="form-control" id="eav" name="eav" disabled>
+                            </div> 
+                        </div>-->
+                        <h6>Energy Consumption and Bill</h6>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label for="monthlyConsumption" class="form-label">Monthly Energy Consumption</label>
+                                <input type="number" class="form-control" id="monthlyConsumption" name="monthlyConsumption" readonly aria-readonly="true">
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="monthlyBill" class="form-label">Monthly Bill</label>
+                                <input type="number" class="form-control" id="monthlyBill" name="monthlyBill" readonly aria-readonly="true">
+                            </div>
+                        </div>
+                        <h6>Benchmarks</h6>
+                        <div class="row">
+                            <div class="mb-3 col-md-4">
+                                <label for="luminousEfficiency" class="form-label">Luminous Efficiency</label>
+                                <input type="number" class="form-control" id="luminousEfficiency" name="luminousEfficiency" readonly aria-readonly="true">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="wpm2" class="form-label">Watts per m<sup>2</sup></label>
+                                <input type="number" class="form-control" id="wpm2" name="wpm2" readonly aria-readonly="true">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="epi" class="form-label">Energy Performance Index</label>
+                                <input type="number" class="form-control" id="epi" name="epi" readonly aria-readonly="true">
+                            </div>
+                        </div>
 
                     </form>
                 </div>
