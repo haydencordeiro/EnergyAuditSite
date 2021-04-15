@@ -62,6 +62,7 @@ function CalculateValues({RatedCap,
      
     var output={}
     var MEC = (RatedCap*DailyUsage*DaysPerMonth*NoOfLuminaries)/1000;
+    output["MEC"] = MEC;
     output["Bill"]=MEC*Tarrif;
     output["LE"]=Lumens/RatedCap;
     output["W/m2"]=(NoOfLuminaries*RatedCap)/(RoomLen*RoomWidth);
@@ -85,8 +86,8 @@ calc=CalculateValues(data);
 
 console.log("Bill",calc["Bill"]);
 document.getElementById('monthlyBill').value = calc["Bill"];
-console.log("MEC",MEC);
-document.getElementById('monthlyConsumption').value = MEC;
+console.log("MEC",calc["MEC"]);
+document.getElementById('monthlyConsumption').value = calc["MEC"];
 console.log("RI",RI);
 // document.getElementById('roomIndex').value = RI;
 console.log("N",N);
