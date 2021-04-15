@@ -1,17 +1,19 @@
 
 
-// Required inputs
-var RatedCap=20;
-var DailyUsage=19;
-var DaysPerMonth=29;
-var NoOfLuminaries=80;
-var Tarrif=9;
-var RoomLen=20;
-var RoomWidth=15;
-var RoomHeight=4;
-var Lumens=2100;
-var NTable=300;
 
+function main(e){
+
+// Required inputs
+var RatedCap=document.getElementById("RatedCap").value;
+var DailyUsage=document.getElementById("DailyUsage").value;
+var DaysPerMonth=document.getElementById("DaysPerMonth").value;
+var NoOfLuminaries=document.getElementById("NoOfLuminaries").value;
+var Tarrif=document.getElementById("tariff").value;
+var RoomLen=document.getElementById("roomLength").value;
+var RoomWidth=document.getElementById("roomWidth").value;
+var RoomHeight=document.getElementById("roomHeight").value;
+var Lumens=document.getElementById("Lumens").value;
+var NTable=document.getElementById("buildingIdentification").value;
 
 
 // Calculations
@@ -22,15 +24,17 @@ function GetUF(RI){
     while(all[i]<RI){
         i+=1;
     }
+    var tempnew=[0.37,0.46,0.53,0.59,0.65,0.72,0.78,0.81,0.86,0.9]
     var low=all[i-1];
     var high=all[i];
+    var tempRi=0;
     if((RI-low>high-RI )||(high==RI)){
-        return(high)
+        tempRi=i;
     }
     else{
-        return(low);
+        tempRi=i-1;
     }
-
+    return tempnew[i];
 
 }
 
@@ -55,6 +59,7 @@ function CalculateValues({RatedCap,
      RoomWidth,
      Lumens,
  }){
+     
     var output={}
     var MEC = (RatedCap*DailyUsage*DaysPerMonth*NoOfLuminaries)/1000;
     output["Bill"]=MEC*Tarrif;
@@ -63,7 +68,6 @@ function CalculateValues({RatedCap,
     output["EPI"]=(MEC*12)/(RoomWidth*RoomLen);
     return output;
 }
-
 
 
 var data={
@@ -87,3 +91,4 @@ console.log("LE",calc["LE"]);
 console.log("W/m2",calc["W/m2"]);
 console.log("EPI",calc["EPI"]);
 
+}

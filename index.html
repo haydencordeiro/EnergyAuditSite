@@ -26,17 +26,18 @@
                     <form>
                         <div class="mb-3">
                             <label for="buildingIdentification" class="form-label">Building Identification</label>
-                            <select class="form-select" aria-label="Select your building type" id="buildingIdentification" name="buildingIdentification">
+                            <select class="form-select" aria-label="Select your building type"
+                                id="buildingIdentification" name="buildingIdentification">
                                 <option selected>Building Type</option>
                                 <optgroup label="Commerical Buildings">
-                                    <optgroup label="Offices">
-                                        <option value="300">General Offices</option>
-                                        <option value="500">Deep Plan General Offices</option>
-                                        <option value="300">Computer Works Station</option>
-                                        <option value="300">Conference Rooms, Executive Rooms</option>
-                                        <option value="300">Computer and Data Preperation Rooms</option>
-                                        <option value="200">Filing Rooms</option>
-                                    </optgroup>
+                                <optgroup label="Offices">
+                                    <option value="300">General Offices</option>
+                                    <option value="500">Deep Plan General Offices</option>
+                                    <option value="300">Computer Works Station</option>
+                                    <option value="300">Conference Rooms, Executive Rooms</option>
+                                    <option value="300">Computer and Data Preperation Rooms</option>
+                                    <option value="200">Filing Rooms</option>
+                                </optgroup>
                                 </optgroup>
                                 <option value="200">Public Area</option>
                                 <optgroup label="Drawing Offices">
@@ -47,17 +48,19 @@
                         </div>
                         <div class="mb-3">
                             <label for="rateType" class="form-label">Rate Type</label>
-                            <select class="form-select" aria-label="Select your rate type" id="rateType" name="rateType">
+                            <select class="form-select" aria-label="Select your rate type" id="rateType"
+                                name="rateType">
                                 <option selected>Rate Type</option>
-                                        <option value="1">Tiered</option>
+                                <option value="1">Tiered</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="tariff" class="form-label">Tariff</label>
-                            <input type="number" class="form-control" id="tariff" name="tariff" aria-describedby="emailHelp">
+                            <input type="number" class="form-control" id="tariff" name="tariff"
+                                aria-describedby="emailHelp">
                             <div id="tariffHelp" class="form-text">Rs./Unit</div>
                         </div>
-                    \
+                        \
                         <h3>Room Dimensions</h3>
                         <div class="mb-3 col-md-4">
                             <label for="roomLength" class="form-label">Length (m)</label>
@@ -71,7 +74,29 @@
                             <label for="roomHeight" class="form-label">Height (m)</label>
                             <input type="number" class="form-control" id="roomHeight" name="roomHeight">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="mb-3 col-md-4">
+                            <label for="Lumens" class="form-label">Lumens</label>
+                            <input type="number" class="form-control" id="Lumens" name="Lumens">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="RatedCap" class="form-label">RatedCap</label>
+                            <input type="number" class="form-control" id="RatedCap" name="RatedCap">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="DailyUsage" class="form-label">DailyUsage</label>
+                            <input type="number" class="form-control" id="DailyUsage" name="DailyUsage">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="DaysPerMonth" class="form-label">DaysPerMonth</label>
+                            <input type="number" class="form-control" id="DaysPerMonth" name="DaysPerMonth">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="NoOfLuminaries" class="form-label">NoOfLuminaries</label>
+                            <input type="number" class="form-control" id="NoOfLuminaries" name="NoOfLuminaries">
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="main()">Submit</button>
+
                     </form>
                 </div>
             </div>
