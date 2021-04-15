@@ -10,20 +10,41 @@ var RoomLen=20;
 var RoomWidth=15;
 var RoomHeight=4;
 var Lumens=2100;
+var NTable=300;
 
 
 
 // Calculations
 
+function GetUF(RI){
+    var all=[0.6,0.8,1,1.25,1.5,2,2.5,3,4,5]
+    var i=0;
+    while(all[i]<RI){
+        i+=1;
+    }
+    var low=all[i-1];
+    var high=all[i];
+    if((RI-low>high-RI )||(high==RI)){
+        return(high)
+    }
+    else{
+        return(low);
+    }
+
+
+}
+
+
+
 // constant for every rooom
 // pre calc values
-var UF=0.72;
-var NTable=300;
+
 
 var LLF=0.8;
+var RI=Math.round((RoomLen*RoomWidth)/(RoomHeight*(RoomLen+RoomWidth)));
+var UF=GetUF(RI);
 var N=(RoomLen*RoomWidth*NTable)/(Lumens*UF*LLF);
 var Eav=(NoOfLuminaries*Lumens*UF*LLF)/(RoomLen*RoomWidth);
-var RI=Math.round((RoomLen*RoomWidth)/(RoomHeight*(RoomLen+RoomWidth)));
 
 function CalculateValues({RatedCap,
     DailyUsage,
