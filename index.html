@@ -60,41 +60,80 @@
                                 aria-describedby="emailHelp">
                             <div id="tariffHelp" class="form-text">Rs./Unit</div>
                         </div>
-                        \
-                        <h3>Room Dimensions</h3>
-                        <div class="mb-3 col-md-4">
-                            <label for="roomLength" class="form-label">Length (m)</label>
-                            <input type="number" class="form-control" id="roomLength" name="roomLength">
+                        <h5>Room Dimensions</h5>
+                        <div class="row">
+                            <div class="mb-3 col-md-4">
+                                <label for="roomLength" class="form-label">Length (m)</label>
+                                <input type="number" class="form-control" id="roomLength" name="roomLength">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="roomWidth" class="form-label">Width (m)</label>
+                                <input type="number" class="form-control" id="roomWidth" name="roomWidth">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="roomHeight" class="form-label">Height (m)</label>
+                                <input type="number" class="form-control" id="roomHeight" name="roomHeight">
+                            </div>
                         </div>
-                        <div class="mb-3 col-md-4">
-                            <label for="roomWidth" class="form-label">Width (m)</label>
-                            <input type="number" class="form-control" id="roomWidth" name="roomWidth">
-                        </div>
-                        <div class="mb-3 col-md-4">
-                            <label for="roomHeight" class="form-label">Height (m)</label>
-                            <input type="number" class="form-control" id="roomHeight" name="roomHeight">
-                        </div>
-                        <div class="mb-3 col-md-4">
-                            <label for="Lumens" class="form-label">Lumens</label>
-                            <input type="number" class="form-control" id="Lumens" name="Lumens">
-                        </div>
-                        <div class="mb-3 col-md-4">
-                            <label for="RatedCap" class="form-label">RatedCap</label>
-                            <input type="number" class="form-control" id="RatedCap" name="RatedCap">
-                        </div>
-                        <div class="mb-3 col-md-4">
-                            <label for="DailyUsage" class="form-label">DailyUsage</label>
-                            <input type="number" class="form-control" id="DailyUsage" name="DailyUsage">
-                        </div>
-                        <div class="mb-3 col-md-4">
-                            <label for="DaysPerMonth" class="form-label">DaysPerMonth</label>
-                            <input type="number" class="form-control" id="DaysPerMonth" name="DaysPerMonth">
-                        </div>
-                        <div class="mb-3 col-md-4">
-                            <label for="NoOfLuminaries" class="form-label">NoOfLuminaries</label>
-                            <input type="number" class="form-control" id="NoOfLuminaries" name="NoOfLuminaries">
+                        <div class="row mt-3 mb-3">
+                            <h5>Fixtures Count</h5>
+                            <div class="form-check col-md-3" style="margin-left: 1%;">
+                                <input class="form-check-input" type="radio" name="fixtureCount" id="singleFixture"
+                                    onchange="fixtureHide();" checked>
+                                <label class="form-check-label" for="singleFixture">
+                                    Single Fixture
+                                </label>
+                            </div>
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" type="radio" name="fixtureCount" id="multipleFixture"
+                                    onchange="fixtureHide();">
+                                <label class="form-check-label" for="multipleFixture">
+                                    Multiple Fixture
+                                </label>
+                            </div>
+
                         </div>
 
+                        <div class="row">
+                            <div class="mb-3 col-md-8">
+                                <label for="equipmentNameSingle" class="form-label">Equipment Name</label>
+                                <select class="form-select" aria-label="Select your Equipment Name"
+                                    id="equipmentNameSingle" name="equipmentNameSingle">
+                                    <option></option>
+                                    <option value="1">T8 20W</option>
+                                    <option value="2">T9 30W</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-md-4" id="equipmentCountDiv">
+                                <label for="equipmentCount" class="form-label">Count</label>
+                                <input type="number" class="form-control" id="equipmentCount" name="equipmentCount">
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="Lumens" class="form-label">Lumens</label>
+                                <input type="number" class="form-control" id="Lumens" name="Lumens">
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="RatedCap" class="form-label">RatedCap</label>
+                                <input type="number" class="form-control" id="RatedCap" name="RatedCap">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="mb-3 col-md-4">
+                                <label for="NoOfLuminaries" class="form-label">No of Luminaries</label>
+                                <input type="number" class="form-control" id="NoOfLuminaries" name="NoOfLuminaries">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="DailyUsage" class="form-label">Daily Usage (hours)</label>
+                                <input type="number" class="form-control" id="DailyUsage" name="DailyUsage">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="DaysPerMonth" class="form-label">Days per Month</label>
+                                <input type="number" class="form-control" id="DaysPerMonth" name="DaysPerMonth">
+                            </div>
+
+                        </div>
                         <button type="button" class="btn btn-primary" onclick="main()">Submit</button>
 
                     </form>
@@ -107,6 +146,18 @@
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
     <script src="index.js"></script>
+    <script>
+        document.getElementById('equipmentCountDiv').style.display = 'none';
+        function fixtureHide() {
+            if (document.getElementById('multipleFixture').checked) {
+                document.getElementById('equipmentCountDiv').style.display = 'block';
+            }
+            else {
+                document.getElementById('equipmentCountDiv').style.display = 'none';
+            }
+        }
+
+    </script>
 
 </body>
 
