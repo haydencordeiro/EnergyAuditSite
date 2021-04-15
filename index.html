@@ -10,6 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="data/specification.js"></script>
+    <script src="mainCalulation.js"></script>
+
+
 </head>
 
 <body>
@@ -98,10 +102,11 @@
                             <div class="mb-3 col-md-8">
                                 <label for="equipmentNameSingle" class="form-label">Equipment Name</label>
                                 <select class="form-select" aria-label="Select your Equipment Name"
-                                    id="equipmentNameSingle" name="equipmentNameSingle">
+                                    id="equipmentNameSingle" name="equipmentNameSingle"
+                                    onchange="onChangeEquipmentDropDown()">
                                     <option></option>
-                                    <option value="1">T8 20W</option>
-                                    <option value="2">T9 30W</option>
+                                    <!-- <option value="1">T8 20W</option>
+                                    <option value="2">T9 30W</option> -->
                                 </select>
                             </div>
                             <div class="mb-3 col-md-4" id="equipmentCountDiv">
@@ -110,11 +115,11 @@
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="Lumens" class="form-label">Lumens</label>
-                                <input type="number" class="form-control" id="Lumens" name="Lumens">
+                                <input type="number" class="form-control" id="Lumens" name="Lumens" readonly>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="RatedCap" class="form-label">Rated Capacity</label>
-                                <input type="number" class="form-control" id="RatedCap" name="RatedCap">
+                                <label for="RatedCap" class="form-label">Power</label>
+                                <input type="number" class="form-control" id="RatedCap" name="RatedCap" readonly>
                             </div>
                         </div>
 
@@ -134,7 +139,7 @@
                             </div>
 
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="main()">Submit</button>
+                        <button type="button" class="btn btn-primary" onclick="mainCalculation()">Submit</button>
 
                     </form>
                 </div>
@@ -165,26 +170,31 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="monthlyConsumption" class="form-label">Monthly Energy Consumption</label>
-                                <input type="number" class="form-control" id="monthlyConsumption" name="monthlyConsumption" readonly aria-readonly="true">
+                                <input type="number" class="form-control" id="monthlyConsumption"
+                                    name="monthlyConsumption" readonly aria-readonly="true">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="monthlyBill" class="form-label">Monthly Bill</label>
-                                <input type="number" class="form-control" id="monthlyBill" name="monthlyBill" readonly aria-readonly="true">
+                                <input type="number" class="form-control" id="monthlyBill" name="monthlyBill" readonly
+                                    aria-readonly="true">
                             </div>
                         </div>
                         <h6>Benchmarks</h6>
                         <div class="row">
                             <div class="mb-3 col-md-4">
                                 <label for="luminousEfficiency" class="form-label">Luminous Efficiency</label>
-                                <input type="number" class="form-control" id="luminousEfficiency" name="luminousEfficiency" readonly aria-readonly="true">
+                                <input type="number" class="form-control" id="luminousEfficiency"
+                                    name="luminousEfficiency" readonly aria-readonly="true">
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label for="wpm2" class="form-label">Watts per m<sup>2</sup></label>
-                                <input type="number" class="form-control" id="wpm2" name="wpm2" readonly aria-readonly="true">
+                                <input type="number" class="form-control" id="wpm2" name="wpm2" readonly
+                                    aria-readonly="true">
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label for="epi" class="form-label">Energy Performance Index</label>
-                                <input type="number" class="form-control" id="epi" name="epi" readonly aria-readonly="true">
+                                <input type="number" class="form-control" id="epi" name="epi" readonly
+                                    aria-readonly="true">
                             </div>
                         </div>
 
@@ -193,11 +203,10 @@
             </div>
         </div>
     </div>
-
+    <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-    <script src="index.js"></script>
     <script>
         document.getElementById('equipmentCountDiv').style.display = 'none';
         function fixtureHide() {
