@@ -85,6 +85,8 @@ calc=CalculateValues(data);
 
 console.log("Bill",calc["Bill"]);
 document.getElementById('monthlyBill').value = calc["Bill"];
+console.log("MEC",MEC);
+document.getElementById('monthlyConsumption').value = MEC;
 console.log("RI",RI);
 // document.getElementById('roomIndex').value = RI;
 console.log("N",N);
