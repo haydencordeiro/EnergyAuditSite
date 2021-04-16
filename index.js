@@ -2,9 +2,8 @@
 
 const equipDropRef=document.getElementById("equipmentNameSingle");
 function createEquipmentDropDown(){
-    tempString=""
+    tempString=`<option value=""></option>`
     for(var i=0;i<specData.length;i++){
-        console.log(specData[i])
         tempString+=`<option value="${i}">${specData[i]["name"] + " " + specData[i]["power"]+"w"} </option>`;
     }
     equipDropRef.innerHTML=tempString;

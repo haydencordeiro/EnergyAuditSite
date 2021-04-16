@@ -1,6 +1,8 @@
 
 
 
+
+
 function mainCalculation(){
 
     // Required inputs
@@ -38,11 +40,13 @@ function mainCalculation(){
     
     }
     
-    
+ 
+        
     
     // constant for every rooom
     // pre calc values
     
+    const equipDropRef=document.getElementById("equipmentNameSingle");
     
     var LLF=0.8;
     var RI=Math.round((RoomLen*RoomWidth)/(RoomHeight*(RoomLen+RoomWidth)));
@@ -82,24 +86,50 @@ function mainCalculation(){
         "Lumens":Lumens, 
     
     }
-    calc=CalculateValues(data);
-    
-    console.log("Bill",calc["Bill"]);
-    document.getElementById('monthlyBill').value = calc["Bill"];
-    console.log("MEC",calc["MEC"]);
-    document.getElementById('monthlyConsumption').value = calc["MEC"];
-    console.log("RI",RI);
-    // document.getElementById('roomIndex').value = RI;
-    console.log("N",N);
-    // document.getElementById('fittingNumber').value = N;
-    console.log("Eav",Eav);
-    // document.getElementById('eav').value = Eav;
-    console.log("LE",calc["LE"]);
-    document.getElementById('luminousEfficiency').value = calc["LE"];
-    console.log("W/m2",calc["W/m2"]);
-    document.getElementById('wpm2').value = calc["W/m2"];
-    console.log("EPI",calc["EPI"]);
-    document.getElementById('epi').value = calc["EPI"];
+
+    function RecommnedationLight(data,monBill){
+        var tempdata={}
+        
+        Object.assign(tempdata, data);
+
+        for(var i=0;i<specData.length;i++){
+            if(i!=equipDropRef.value){
+
+            
+                tempdata["RatedCap"]=specData[i]["power"]
+                tempdata["Lumens"]=specData[i]["lumen"]
+                
+                tempcalc=CalculateValues(tempdata);
+                // console.log(tempcalc)
+                if(tempcalc["Bill"]<monBill){
+
+                    console.log(tempcalc);
+                }
+            
+            }
+
+        }
     }
+
     
+    calc=CalculateValues(data);
+    RecommnedationLight(data,calc["Bill"]);
+    //console.log("Bill",calc["Bill"]);
+    document.getElementById('monthlyBill').value = calc["Bill"];
+    //console.log("MEC",calc["MEC"]);
+    document.getElementById('monthlyConsumption').value = calc["MEC"];
+    //console.log("RI",RI);
+    // document.getElementById('roomIndex').value = RI;
+    //console.log("N",N);
+    // document.getElementById('fittingNumber').value = N;
+    //console.log("Eav",Eav);
+    // document.getElementById('eav').value = Eav;
+    //console.log("LE",calc["LE"]);
+    document.getElementById('luminousEfficiency').value = calc["LE"];
+    //console.log("W/m2",calc["W/m2"]);
+    document.getElementById('wpm2').value = calc["W/m2"];
+    //console.log("EPI",calc["EPI"]);
+    document.getElementById('epi').value = calc["EPI"];
+}
     
+  
