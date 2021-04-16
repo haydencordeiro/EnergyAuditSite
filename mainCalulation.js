@@ -115,9 +115,11 @@ function mainCalculation(){
     calc=CalculateValues(data);
     RecommnedationLight(data,calc["Bill"]);
     //console.log("Bill",calc["Bill"]);
-    document.getElementById('monthlyBill').value = calc["Bill"];
+    document.getElementById('dailyBill').value = (calc["Bill"]/DaysPerMonth).toFixed(2);
+    document.getElementById('monthlyBill').value = calc["Bill"].toFixed(2);
+    document.getElementById('yearlyBill').value = (calc["Bill"]*12).toFixed(2);
     //console.log("MEC",calc["MEC"]);
-    document.getElementById('monthlyConsumption').value = calc["MEC"];
+    document.getElementById('monthlyConsumption').value = calc["MEC"].toFixed(2);
     //console.log("RI",RI);
     // document.getElementById('roomIndex').value = RI;
     //console.log("N",N);
@@ -125,11 +127,11 @@ function mainCalculation(){
     //console.log("Eav",Eav);
     // document.getElementById('eav').value = Eav;
     //console.log("LE",calc["LE"]);
-    document.getElementById('luminousEfficiency').value = calc["LE"];
+    document.getElementById('luminousEfficiency').value = calc["LE"].toFixed(2);
     //console.log("W/m2",calc["W/m2"]);
-    document.getElementById('wpm2').value = calc["W/m2"];
+    document.getElementById('wpm2').value = calc["W/m2"].toFixed(2);
     //console.log("EPI",calc["EPI"]);
-    document.getElementById('epi').value = calc["EPI"];
+    document.getElementById('epi').value = calc["EPI"].toFixed(2);
 }
     
   
