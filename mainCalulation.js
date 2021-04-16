@@ -51,25 +51,35 @@ function mainCalculation(){
     var LLF=0.8;
     var RI=Math.round((RoomLen*RoomWidth)/(RoomHeight*(RoomLen+RoomWidth)));
     var UF=GetUF(RI);
-    var N=(RoomLen*RoomWidth*NTable)/(Lumens*UF*LLF);
-    var Eav=(NoOfLuminaries*Lumens*UF*LLF)/(RoomLen*RoomWidth);
     
     function CalculateValues({RatedCap,
         DailyUsage,
-         DaysPerMonth,
-         NoOfLuminaries,
-         Tarrif,
-         RoomLen,
-         RoomWidth,
-         Lumens,
-     }){
-         
+        DaysPerMonth,
+        NoOfLuminaries,
+        Tarrif,
+        RoomLen,
+        RoomWidth,
+        Lumens,
+        calcN,
+    }){
+        
         var output={}
-        var MEC = (RatedCap*DailyUsage*DaysPerMonth*NoOfLuminaries)/1000;
+        if(calcN){
+
+            var N=(RoomLen*RoomWidth*NTable)/(Lumens*UF*LLF);
+        }
+        else{
+            N=NoOfLuminaries
+        }
+        var MEC = (RatedCap*DailyUsage*DaysPerMonth*N)/1000;
+        var Eav=(N*Lumens*UF*LLF)/(RoomLen*RoomWidth);
+        
         output["MEC"] = MEC;
+        output["Eav"] = Eav;
+        output["N"] = N;
         output["Bill"]=MEC*Tarrif;
         output["LE"]=Lumens/RatedCap;
-        output["W/m2"]=(NoOfLuminaries*RatedCap)/(RoomLen*RoomWidth);
+        output["W/m2"]=(N*RatedCap)/(RoomLen*RoomWidth);
         output["EPI"]=(MEC*12)/(RoomWidth*RoomLen);
         return output;
     }
@@ -84,36 +94,42 @@ function mainCalculation(){
         "RoomLen":RoomLen,
         "RoomWidth":RoomWidth,
         "Lumens":Lumens, 
+        "calcN":false,
     
     }
 
-    function RecommnedationLight(data,monBill){
+    function RecommnedationLight(data,monBill,currEav){
         var tempdata={}
         
         Object.assign(tempdata, data);
-
+        var totalString="Model Name  Power Nooffittings  Eav";
         for(var i=0;i<specData.length;i++){
             if(i!=equipDropRef.value){
 
             
                 tempdata["RatedCap"]=specData[i]["power"]
                 tempdata["Lumens"]=specData[i]["lumen"]
+                tempdata["calcN"]=true
                 
                 tempcalc=CalculateValues(tempdata);
                 // console.log(tempcalc)
-                if(tempcalc["Bill"]<monBill){
+                if(tempcalc["Bill"]<monBill && NTable<=tempdata["Eav"]<=currEav){
 
-                    console.log(tempcalc);
+                    console.log(specData[i]["name"]);
+                    var tempString=specData[i]["name"]+" "+specData[i]["power"]+"w"+" "+tempcalc["N"].toFixed(2)+" "+tempcalc["Eav"].toFixed(2)
+                    totalString+="<br>"+tempString;
                 }
             
             }
 
         }
+        // console.log(totalString);
+        document.getElementById("results-table").innerHTML=totalString;
     }
 
     
     calc=CalculateValues(data);
-    RecommnedationLight(data,calc["Bill"]);
+    RecommnedationLight(data,calc["Bill"],calc["Eav"]);
     //console.log("Bill",calc["Bill"]);
     document.getElementById('dailyBill').value = (calc["Bill"]/DaysPerMonth).toFixed(2);
     document.getElementById('monthlyBill').value = calc["Bill"].toFixed(2);
