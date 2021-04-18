@@ -81,6 +81,9 @@ function mainCalculation(){
         output["LE"]=Lumens/RatedCap;
         output["W/m2"]=(N*RatedCap)/(RoomLen*RoomWidth);
         output["EPI"]=(MEC*12)/(RoomWidth*RoomLen);
+        output["nx"]=Math.round(Math.sqrt((RoomLen/RoomWidth)*N+((RoomLen-RoomWidth)/(Math.pow(RoomLen,2)*N))))
+        output["ny"]=Math.round(N/output["nx"]);
+
         return output;
     }
     
@@ -115,7 +118,7 @@ function mainCalculation(){
                 // console.log(tempcalc)
                 if(tempcalc["Bill"]<monBill && NTable<=tempdata["Eav"]<=currEav){
 
-                    console.log(specData[i]["name"]);
+                    console.log(tempcalc["nx"],tempcalc["ny"]);
                     var tempString=specData[i]["name"]+" "+specData[i]["power"]+"w"+" "+tempcalc["N"].toFixed(2)+" "+tempcalc["Eav"].toFixed(2)
                     totalString+="<br>"+tempString;
                 }
