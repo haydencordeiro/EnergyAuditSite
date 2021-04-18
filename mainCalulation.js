@@ -103,9 +103,9 @@ function mainCalculation(){
 
     function RecommnedationLight(data,monBill,currEav){
         var tempdata={}
-        
+        const recTable=document.getElementById("rec-table-body")
         Object.assign(tempdata, data);
-        var totalString="Model Name  Power Nooffittings  Eav";
+        var totalString="";
         for(var i=0;i<specData.length;i++){
             if(i!=equipDropRef.value){
 
@@ -118,16 +118,36 @@ function mainCalculation(){
                 // console.log(tempcalc)
                 if(tempcalc["Bill"]<monBill && NTable<=tempdata["Eav"]<=currEav){
 
-                    console.log(tempcalc["nx"],tempcalc["ny"]);
-                    var tempString=specData[i]["name"]+" "+specData[i]["power"]+"w"+" "+tempcalc["N"].toFixed(2)+" "+tempcalc["Eav"].toFixed(2)
-                    totalString+="<br>"+tempString;
+                    // console.log(tempcalc["nx"],tempcalc["ny"]);
+                    // var tempString=specData[i]["name"]+" "+specData[i]["power"]+"w"+" "+tempcalc["N"].toFixed(2)+" "+tempcalc["Eav"].toFixed(2)
+                    // totalString+="<br>"+tempString;
+                    var tempString=`
+                    <tr>
+                    
+                    <td>${specData[i]["name"]}</td>
+                    <td>${specData[i]["power"]}</td>
+                    <td>${specData[i]["lumen"]}</td>
+                    <td>${tempcalc["N"].toFixed(2)}</td>
+                    <td>${tempcalc["Eav"].toFixed(2)}</td>
+                    <td>${tempcalc["nx"].toFixed(2)}</td>
+                    <td>${tempcalc["ny"].toFixed(2)}</td>
+                    <td>${specData[i]["System efficacy"]}</td>
+                    <td>${specData[i]["Color Temperature"]}</td>
+                    <td>${specData[i]["CRI"]}</td>
+                    <td>${specData[i]["Voltage (V)"]}</td>
+                    <td>${specData[i]["Life"]}</td>
+                    <td>${specData[i]["Application"]}</td>
+                    </tr>`
+                    totalString+=tempString
                 }
             
             }
 
         }
-        // console.log(totalString);
-        document.getElementById("results-table").innerHTML=totalString;
+
+
+
+        recTable.innerHTML=totalString;
     }
 
     

@@ -14,7 +14,7 @@ var specData= [
             "name": "PureLine",
             "power": "32",
             "lumen": "3400",
-            "undefined": "Symbol"
+            "": "Symbol"
         },
         {
             "name": "Chopstick",
@@ -25,13 +25,13 @@ var specData= [
             "CRI": "80",
             "Voltage (V)": "240",
             "Application": "OO, PC, CR",
-            "undefined": "OO"
+            "": "OO"
         },
         {
             "name": "Chopstick",
             "power": "32.5",
             "lumen": "3600",
-            "undefined": "CR"
+            "": "CR"
         },
         {
             "name": "Sereno",
@@ -42,7 +42,7 @@ var specData= [
             "CRI": "80",
             "Voltage (V)": "240",
             "Application": "OO, PC, CR",
-            "undefined": "PC"
+            "": "PC"
         },
         {
             "name": "LineLight",
@@ -53,7 +53,7 @@ var specData= [
             "CRI": "80",
             "Voltage (V)": "270",
             "Application": "OO, PC, CR",
-            "undefined": "MR"
+            "": "MR"
         },
         {
             "name": "PowerBalance",
@@ -64,7 +64,7 @@ var specData= [
             "CRI": "80",
             "Voltage (V)": "240",
             "Application": "OO, MR",
-            "undefined": "PO"
+            "": "PO"
         },
         {
             "name": "Dayline",
@@ -76,7 +76,7 @@ var specData= [
             "Voltage (V)": "240",
             "Life ": "50",
             "Application": "OO, PO",
-            "undefined": "C"
+            "": "C"
         },
         {
             "name": "SmartGlow",
@@ -88,13 +88,13 @@ var specData= [
             "Voltage (V)": "240",
             "Life ": "50",
             "Application": "OO",
-            "undefined": "R"
+            "": "R"
         },
         {
             "name": "SmartGlow",
             "power": "37",
             "lumen": "3650",
-            "undefined": "RS"
+            "": "RS"
         },
         {
             "name": "FullGlow",
