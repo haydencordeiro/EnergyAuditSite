@@ -16,7 +16,7 @@ function mainCalculation(){
     var RoomHeight=document.getElementById("roomHeight").value;
     var Lumens=document.getElementById("Lumens").value;
     var NTable=document.getElementById("buildingIdentification").value;
-    
+
     
     // Calculations
     
@@ -127,10 +127,6 @@ function mainCalculation(){
                     <td>${specData[i]["name"]}</td>
                     <td>${specData[i]["power"]}</td>
                     <td>${specData[i]["lumen"]}</td>
-                    <td>${tempcalc["N"].toFixed(2)}</td>
-                    <td>${tempcalc["Eav"].toFixed(2)}</td>
-                    <td>${tempcalc["nx"].toFixed(2)}</td>
-                    <td>${tempcalc["ny"].toFixed(2)}</td>
                     <td>${specData[i]["System efficacy"]}</td>
                     <td>${specData[i]["Color Temperature"]}</td>
                     <td>${specData[i]["CRI"]}</td>
@@ -171,6 +167,15 @@ function mainCalculation(){
     document.getElementById('wpm2').value = calc["W/m2"].toFixed(2);
     //console.log("EPI",calc["EPI"]);
     document.getElementById('epi').value = calc["EPI"].toFixed(2);
+
+
+
+
+
+    document.getElementById("nooflights").value=calc["N"];
+    document.getElementById("Eav").value=calc["Eav"].toFixed(2);
+       document.getElementById("rows").value=calc["nx"];
+      document.getElementById("cols").value=calc["ny"];
 }
     
   
