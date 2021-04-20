@@ -140,7 +140,10 @@ function mainCalculation(){
             }
 
         }
+        if(totalString.length<2){
 
+             totalString="<p style='color:red'> <br>Note: <br>The appliance has the energy potential suitable for the defined Area<br> </p>";
+        }
 
 
         recTable.innerHTML=totalString;
