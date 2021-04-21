@@ -101,5 +101,14 @@ function pumpCalculation() {
                     </tr>`;
 
 
+
+var D2=Math.pow((D*0.7)/D,3)*power;
+console.log("D2",D2);
+var HP2=Math.pow((Q*0.55)/Q,3)*HP;
+console.log("HP2",HP2);
+symptomTable[0][1]+=D2;
+symptomTable[1][1]+=D2;
+symptomTable[2][1]+=HP2;
+
     document.getElementById('output-table-body').innerHTML = tempString;
 }
