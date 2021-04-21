@@ -2,7 +2,7 @@
 
         var symptomTable = [
             ['Oversized Pump', 'Impeller Trimming', 'Fixed Flow Reduction'],
-            ['Oversized Pump', 'Impeller Trimming', 'Fixed Flow Reduction'],
+            ['Oversized Pump', 'Impeller Trimming To', 'Fixed Flow Reduction'],
             ['Wrong system design', 'Control Flow Rate using Valve', 'Continuous Discharge'],
             ['Pump operate far away from BEP', 'Match Discharge Capacity with requirement', 'Constant Discharge Flowrate'],
             ['Produces new head Capacity', 'Variable Speed Drive (VSD)', 'Operate at low flowrate at low Efficiency'],
@@ -102,13 +102,25 @@ function pumpCalculation() {
 
 
 
+                    document.getElementById('output-table-body').innerHTML = tempString;
+
+
+
+
+
+
+
+                    
 var D2=Math.pow((D*0.7)/D,3)*power;
 console.log("D2",D2);
 var HP2=Math.pow((Q*0.55)/Q,3)*HP;
 console.log("HP2",HP2);
-symptomTable[0][1]+=D2;
-symptomTable[1][1]+=D2;
-symptomTable[2][1]+=HP2;
-
-    document.getElementById('output-table-body').innerHTML = tempString;
+// symptomTable[0][1]="Impeller Trimming will use "+D2+"power";
+// symptomTable[1][1]="Impeller Trimming will use "+D2+"power";
+// symptomTable[2][1]="Control Flow Rate using Valve recommended"+HP2+"";
+// console.log(symptomTable);
+if((EFF_pump*100)<75){
+    console.log("Ef",EFF_pump)
+    document.getElementById("rec-table").style.display="block";
+}
 }

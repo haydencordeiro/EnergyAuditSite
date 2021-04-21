@@ -292,40 +292,43 @@
                             <div id="paybackPeriodHelp" class="form-text">Years</div>
                         </div>
                     </div> -->
-                    <h6>Recommendation Table</h6>
-                    <div class="row">
-                        <div class="mb-3">
-                            <label for="symptom" class="form-label">Symptom</label>
-                            <select class="form-select" aria-label="Select your Symptom" id="symptom" name="symptom"
-                                onchange="symptomTableChange();">
-                                <option selected></option>
-                                <option value="1">Throttle valve controlled system</option>
-                                <option value="2">Bypass line exists</option>
-                                <option value="3">Constant pump operation</option>
-                                <option value="4">High Maintenance cost</option>
-                                <option value="5">Throttling</option>
-                                <option value="6">Hard Start Capability</option>
-                                <option value="7">Bearing Life, Improve in operating Efficiency, Reduce Cost</option>
-                                <option value="8">Varying Flow control</option>
-                            </select>
+                    <div id="rec-table">
+                        <h6>Recommendation Table</h6>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="symptom" class="form-label">Symptom</label>
+                                <select class="form-select" aria-label="Select your Symptom" id="symptom" name="symptom"
+                                    onchange="symptomTableChange();">
+                                    <option selected></option>
+                                    <option value="1">Throttle valve controlled system</option>
+                                    <option value="2">Bypass line exists</option>
+                                    <option value="3">Constant pump operation</option>
+                                    <option value="4">High Maintenance cost</option>
+                                    <option value="5">Throttling</option>
+                                    <option value="6">Hard Start Capability</option>
+                                    <option value="7">Bearing Life, Improve in operating Efficiency, Reduce Cost
+                                    </option>
+                                    <option value="8">Varying Flow control</option>
+                                </select>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="mb-3 col-md-12">
-                            <label for="likelyReason" class="form-label">Likely Reason</label>
-                            <input type="text" class="form-control" id="likelyReason" name="likelyReason" readonly
-                                aria-readonly="true">
-                        </div>
-                        <div class="mb-3 col-md-12">
-                            <label for="bestSol" class="form-label">Best Solution</label>
-                            <input type="text" class="form-control" id="bestSol" name="bestSol" readonly
-                                aria-readonly="true">
-                        </div>
-                        <div class="mb-3 col-md-12">
-                            <label for="application" class="form-label">Application</label>
-                            <input type="text" class="form-control" id="application" name="application" readonly
-                                aria-readonly="true">
+                        <div class="row">
+                            <div class="mb-3 col-md-12">
+                                <label for="likelyReason" class="form-label">Likely Reason</label>
+                                <input type="text" class="form-control" id="likelyReason" name="likelyReason" readonly
+                                    aria-readonly="true">
+                            </div>
+                            <div class="mb-3 col-md-12">
+                                <label for="bestSol" class="form-label">Best Solution</label>
+                                <input type="text" class="form-control" id="bestSol" name="bestSol" readonly
+                                    aria-readonly="true">
+                            </div>
+                            <div class="mb-3 col-md-12">
+                                <label for="application" class="form-label">Application</label>
+                                <input type="text" class="form-control" id="application" name="application" readonly
+                                    aria-readonly="true">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -339,6 +342,8 @@
 
 
     <script>
+        document.getElementById("rec-table").style.display = "none";
+
         var sym = document.getElementById('symptom').value;
 
 
