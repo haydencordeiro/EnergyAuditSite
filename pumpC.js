@@ -131,10 +131,10 @@ function ModalCalculation(value) {
     var val = parseInt(value);
     if(val<=2)
     {
-        document.getElementById('modalP').innerHTML = `Impeller Modal <br> D2 = ${global_D2} <br> HP2 = ${global_HP2} <br><br><br>`;
+        document.getElementById('modalP').innerHTML = `Impeller Calculation <br> P2 = ${global_D2} <br> we have reduced diameter by 75%<br>Forumla Used:<br>P2=(D2/D1)^3*P1<br><br><br>`;
     }
     else if(val==3)
     {
-        document.getElementById('modalP').innerHTML = `Control Valve Modal <br> D2 = ${global_D2} <br> HP2 = ${global_HP2} <br><br><br>`;
+        document.getElementById('modalP').innerHTML = `Control Valve Calculation HP2 = ${global_HP2} <br>we have reduced Pump Flowrate/Capacity (Q) by 55% <br>Forumla Used:<br>HP2=(Q2/Q1)^3*HP1<br><br><br>`;
     }
 }
