@@ -66,7 +66,8 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="fluidPumped" class="form-label">Fluid to be pumped</label>
-                                <select class="form-select" id="fluidPumped" name="fluidPumped" onchange="fluidPumpedChange()">
+                                <select class="form-select" id="fluidPumped" name="fluidPumped"
+                                    onchange="fluidPumpedChange()">
                                     <option selected></option>
                                     <option value="1">Water</option>
                                     <option value="2">Air</option>
@@ -196,8 +197,9 @@
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="yearlyConsumption" class="form-label">Yearly Energy Consumption</label>
-                                <input type="number" class="form-control" id="yearlyConsumption" name="yearlyConsumption" readonly
-                                    aria-readonly="true" aria-describedby="yearlyConsumptionHelp">
+                                <input type="number" class="form-control" id="yearlyConsumption"
+                                    name="yearlyConsumption" readonly aria-readonly="true"
+                                    aria-describedby="yearlyConsumptionHelp">
                                 <div id="yearlyConsumptionHelp" class="form-text">Units</div>
                             </div>
 
@@ -245,7 +247,7 @@
                     </form>
                     <br><br>
                     <hr>
-                    <h4 class="card-title">Recommendations</h4>
+                    <!-- <h4 class="card-title">Recommendations</h4>
                     <hr>
                     <h6>Energy Consumption and Bill</h6>
                     <div class="row">
@@ -289,7 +291,7 @@
                                 aria-readonly="true" aria-describedby="paybackPeriodHelp">
                             <div id="paybackPeriodHelp" class="form-text">Years</div>
                         </div>
-                    </div>
+                    </div> -->
                     <h6>Recommendation Table</h6>
                     <div class="row">
                         <div class="mb-3">
@@ -333,7 +335,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-        <script src="pumpC.js"></script>
+    <script src="pumpC.js"></script>
 
 
     <script>
@@ -354,7 +356,7 @@
             var val = document.getElementById('symptom').value;
             var v = parseInt(val) - 1;
             console.log(v);
-            console.log(typeof(v));
+            console.log(typeof (v));
             document.getElementById('likelyReason').value = symptomTable[v][0];
             console.log(symptomTable[v][0]);
             document.getElementById('bestSol').value = symptomTable[v][1];
@@ -367,12 +369,11 @@
         function fluidPumpedChange() {
             var fval = document.getElementById('fluidPumped').value;
             var f = parseInt(fval) - 1;
-            if(f!=5){
-                document.getElementById('fluidDensity').value = fd[f]; 
+            if (f != 5) {
+                document.getElementById('fluidDensity').value = fd[f];
             }
-            else
-            {
-                document.getElementById('fluidDensity').value = null; 
+            else {
+                document.getElementById('fluidDensity').value = null;
             }
         }
     </script>

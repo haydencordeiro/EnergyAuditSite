@@ -65,8 +65,13 @@ function pumpCalculation() {
     console.log("yearly bill", Cost_Y);
     document.getElementById('yearlyBill').value = Cost_Y;
     console.log("total head", H);
+    
+    
     console.log("Efficiency", EFF_pump);
+    document.getElementById('overallEff').value =EFF_pump;
     console.log("power factor", power_factor);
+    document.getElementById('powerFactor').value =power_factor;
+
     console.log("power Consum", P);
     console.log("Bill", Cost_M);
 
