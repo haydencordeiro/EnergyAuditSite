@@ -1,5 +1,15 @@
 
 
+        var symptomTable = [
+            ['Oversized Pump', 'Impeller Trimming', 'Fixed Flow Reduction'],
+            ['Oversized Pump', 'Impeller Trimming', 'Fixed Flow Reduction'],
+            ['Wrong system design', 'Control Flow Rate using Valve', 'Continuous Discharge'],
+            ['Pump operate far away from BEP', 'Match Discharge Capacity with requirement', 'Constant Discharge Flowrate'],
+            ['Produces new head Capacity', 'Variable Speed Drive (VSD)', 'Operate at low flowrate at low Efficiency'],
+            ['Requires higher operating Current', 'Variable Frequency Drive (VFD)', 'Low startup current'],
+            ['Start pump at low speed', 'Variable Frequency Drive (VFD)', 'Variable Flow Reduction'],
+            ['Static Head is High compare to Total head', 'Pumps in Parallel', 'Meet Demand'],
+        ];
 function pumpCalculation() {
     // // inputs
     // // var fluid_density = 997;
@@ -17,7 +27,7 @@ function pumpCalculation() {
     // // var N1 = 1485;
     var N1 = document.getElementById('motorRPM').value;
     // // var rated_eff = 0.92
-    var rated_eff = document.getElementById('ratedEff').value;
+    var rated_eff = document.getElementById('ratedEff').value/100;
     // // var power = 65;
     var power = document.getElementById('motorPower').value;
     // // var running_time = 5;
@@ -41,10 +51,13 @@ function pumpCalculation() {
     var v = (Q / (0.7854 * D * D));
     var hf = (4 * f * l * Math.pow(v, 2)) / (2 * 9.81 * D);
 
-    var H = hd - hs - hf;
-    var HP = (H * Q * fluid_density * 9.81) / 1000;
+    var H = hd - hs - Hf;
+    console.log(H);
+    var HP = (H * Q * fluid_density * 9.81) /(3600*1000);
     var SP = power * rated_eff;
     var EFF_pump = HP / SP;
+    console.log("hp:",HP);
+    console.log("sp",SP);
 
     var power_factor = power / (V * I * Math.pow(3, 0.5));
 
@@ -68,19 +81,21 @@ function pumpCalculation() {
     
     
     console.log("Efficiency", EFF_pump);
-    document.getElementById('overallEff').value =EFF_pump;
+    document.getElementById('overallEff').value =EFF_pump*100;
     console.log("power factor", power_factor);
-    document.getElementById('powerFactor').value =power_factor;
+    document.getElementById('powerFactor').value =power_factor*1000;
 
     console.log("power Consum", P);
     console.log("Bill", Cost_M);
 
+
+    
     var tempString = `
                     <tr>
                     
                     <td>${H}</td>
-                    <td>${EFF_pump}</td>
-                    <td>${power_factor}</td>
+                    <td>${EFF_pump*100}</td>
+                    <td>${power_factor*1000}</td>
                     <td>${P}</td>
                     <td>${Cost_M}</td>
                     </tr>`;
