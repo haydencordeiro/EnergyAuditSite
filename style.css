@@ -37,3 +37,13 @@ body {
 .lead {
     font-weight: 400;
 }
+
+.impeller input {
+    width: 78%;
+    margin-left: 1px;
+}
+
+.impeller button {
+    width: 20%;
+    margin-left: 22px;
+}
