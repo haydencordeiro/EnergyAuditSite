@@ -4,7 +4,7 @@ const equipDropRef=document.getElementById("equipmentNameSingle");
 function createEquipmentDropDown(){
     tempString=`<option value=""></option>`
     for(var i=0;i<specData.length;i++){
-        tempString+=`<option value="${i}">${specData[i]["name"] + " " + specData[i]["power"]+"w"} </option>`;
+        tempString+=`<option value="${i}">${specData[i]["name"] + " " + specData[i]["power"]+"W"} </option>`;
     }
     equipDropRef.innerHTML=tempString;
 }

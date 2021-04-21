@@ -64,32 +64,8 @@
                                     <option value="300">Computer and Data Preperation Rooms</option>
                                     <option value="200">Filing Rooms</option>
                                 </optgroup>
-                                <optgroup label="Drawing Offices">
-                                    <option value="300">General </option>
-                                    <option value="500">Drawing Boards</option>
-                                </optgroup>
-                                <option value="200">Print Rooms</option>
-                                <option value="300">Couter, Office Area</option>
-                                </optgroup>
-                                <option value="200">Public Area</option>
-                                <optgroup label="Retailing">
-                                    <option value="300">Small Shops with counters</option>
-                                    <option value="300">Small Self Service Shops wiith Island Displays</option>
-                                    <option value="300">Super Markets - Hyper-Markets</option>
-                                    <option value="300">General</option>
-                                    <option value="300">Checkout</option>
-                                    <option value="300">Showrooms for large objects. Eg: Cars, Furniture</option>
-                                    <option value="100">Shopping precints and arcades</option>
-                                </optgroup>
-                                <optgroup label="Hospitals">
-                                <optgroup label="Anesthetic Rooms">
-                                    <option value="200">General</option>
-                                    <option value="750">Local</option>
-                                </optgroup>
-                                <optgroup label="Consulting Area">
-                                    <option value="200">General</option>
-                                </optgroup>
-                                </optgroup>
+
+
                             </select>
                         </div>
                         <div class="mb-3">
@@ -211,22 +187,34 @@
                         <h6>Energy Consumption and Bill</h6>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label for="monthlyConsumption" class="form-label">Monthly Energy Consumption</label>
+                                <label for="monthlyConsumption" class="form-label">Monthly Energy Consumption
+                                    (Units)</label>
                                 <input type="number" class="form-control" id="monthlyConsumption"
                                     name="monthlyConsumption" readonly aria-readonly="true">
                             </div>
+                        </div>
+                        <div class="row">
+
+
                             <div class="mb-3 col-md-6">
-                                <label for="dailyBill" class="form-label">Daily Bill</label>
+                                <label for="dailyBill" class="form-label">Daily Bill (₹)</label>
                                 <input type="number" class="form-control" id="dailyBill" name="dailyBill" readonly
                                     aria-readonly="true">
                             </div>
+                        </div>
+                        <div class="row">
+
                             <div class="mb-3 col-md-6">
-                                <label for="monthlyBill" class="form-label">Monthly Bill</label>
+                                <label for="monthlyBill" class="form-label">Monthly Bill (₹)</label>
                                 <input type="number" class="form-control" id="monthlyBill" name="monthlyBill" readonly
                                     aria-readonly="true">
                             </div>
+                        </div>
+
+                        <div class="row">
+
                             <div class="mb-3 col-md-6">
-                                <label for="yearlyBill" class="form-label">Yearly Bill</label>
+                                <label for="yearlyBill" class="form-label">Yearly Bill (₹)</label>
                                 <input type="number" class="form-control" id="yearlyBill" name="yearlyBill" readonly
                                     aria-readonly="true">
                             </div>
@@ -234,7 +222,7 @@
                         <h6>Benchmarks</h6>
                         <div class="row">
                             <div class="mb-3 col-md-4">
-                                <label for="luminousEfficiency" class="form-label">Luminous Efficiency</label>
+                                <label for="luminousEfficiency" class="form-label">Luminous Efficacy</label>
                                 <input type="number" class="form-control" id="luminousEfficiency"
                                     name="luminousEfficiency" readonly aria-readonly="true">
                             </div>
@@ -248,16 +236,23 @@
                                 <input type="number" class="form-control" id="epi" name="epi" readonly
                                     aria-readonly="true">
                             </div>
+                            <h6>Room Design</h6>
+
                             <div class="mb-3 col-md-4">
-                                <label for="nooflights" class="form-label">No of Lights</label>
+                                <label for="nooflights" class="form-label">Required no of Lights</label>
                                 <input type="number" class="form-control" id="nooflights" name="nooflights" readonly
                                     aria-readonly="true">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="Eav" class="form-label">E average</label>
+                                <label for="Eav" class="form-label">Calcualted Illuminance</label>
                                 <input type="number" class="form-control" id="Eav" name="Eav" readonly
                                     aria-readonly="true">
                             </div>
+
+                        </div>
+                        <h6>Spacing Between Luminaries</h6>
+
+                        <div class="row">
                             <div class="mb-3 col-md-4">
                                 <label for="rows" class="form-label">Rows</label>
                                 <input type="number" class="form-control" id="rows" name="rows" readonly
