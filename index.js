@@ -18,6 +18,4 @@ function onChangeEquipmentDropDown(){
     lumnens.value=specData[equipDropRef.value]["lumen"];
     ratedCap.value=specData[equipDropRef.value]["power"];
 
-    
-    
 }
