@@ -9,7 +9,8 @@ var typeofEngine=0;
 
 // calculations
 
-var Wc;
+var Wc=1;
+var COP
 if(typeofEngine==0){
     var Wm=1;
     var hm=1;
@@ -19,24 +20,24 @@ if(typeofEngine==0){
 else if(typeofEngine==1){
     Wc = We * ht
 }
-else{
-    Wc = Wtur * ht
-}
+
 
 var fluid=true;//water
 if(fluid){
-    var Cp=1;
-    var To;
-    var Ti;
-    var COP= Q*997 * 1*(To- Ti)/3600*Wc                                                   
+
+    var To=1;
+    var Ti=1;
+    COP= Q*997 * 1*(To- Ti)/3600*Wc                                                   
 }
 else{
 
     var hi=1;
     var ho=1;
-    var COP= Q*1.225 * (hi- ho)/3600*Wc                                                          
+    COP= Q*1.225 * (hi- ho)/3600*Wc                                                          
 }
 
 
-var  EER = COP * 3.418
-var SPC = 3.51 / COP
+var  EER = COP * 3.418;
+var SPC = 3.51 / COP;
+console.log(EER);
+console.log(SPC);
