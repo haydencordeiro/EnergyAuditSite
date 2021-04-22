@@ -71,20 +71,20 @@ function pumpCalculation() {
 
 
     console.log("monthly energy consumption", PM);
-    document.getElementById('monthlyConsumption').value = PM;
+    document.getElementById('monthlyConsumption').value = PM.toFixed(2);
     console.log("monthly bill", Cost_M);
-    document.getElementById('monthlyBill').value = Cost_M;
+    document.getElementById('monthlyBill').value = Cost_M.toFixed(2);
     console.log("yearly energy consumption", PY);
-    document.getElementById('yearlyConsumption').value = PY;
+    document.getElementById('yearlyConsumption').value = PY.toFixed(2);
     console.log("yearly bill", Cost_Y);
-    document.getElementById('yearlyBill').value = Cost_Y;
+    document.getElementById('yearlyBill').value = Cost_Y.toFixed(2);
     console.log("total head", H);
 
 
     console.log("Efficiency", EFF_pump);
-    document.getElementById('overallEff').value = EFF_pump * 100;
+    document.getElementById('overallEff').value = (EFF_pump * 100).toFixed(2);
     console.log("power factor", power_factor);
-    document.getElementById('powerFactor').value = power_factor * 1000;
+    document.getElementById('powerFactor').value = (power_factor * 1000).toFixed(2);
 
     console.log("power Consum", P);
     console.log("Bill", Cost_M);
@@ -94,11 +94,11 @@ function pumpCalculation() {
     var tempString = `
                     <tr>
                     
-                    <td>${H}</td>
-                    <td>${EFF_pump * 100}</td>
-                    <td>${power_factor * 1000}</td>
+                    <td>${H.toFixed(2)}</td>
+                    <td>${(EFF_pump * 100).toFixed(2)}</td>
+                    <td>${(power_factor * 1000).toFixed(2)}</td>
                     <td>${P}</td>
-                    <td>${Cost_M}</td>
+                    <td>${Cost_M.toFixed(2)}</td>
                     </tr>`;
 
 
@@ -131,10 +131,10 @@ function ModalCalculation(value) {
     var val = parseInt(value);
     if(val<=2)
     {
-        document.getElementById('modalP').innerHTML = `Impeller Calculation <br> P2 = ${global_D2} <br> we have reduced diameter by 75%<br>Forumla Used:<br>P2=(D2/D1)^3*P1<br><br><br>`;
+        document.getElementById('modalP').innerHTML = `Impeller Calculation <br> P2 = ${global_D2.toFixed(2)} <br> we have reduced diameter by 75%<br>Forumla Used:<br>P2=(D2/D1)^3*P1<br><br><br>`;
     }
     else if(val==3)
     {
-        document.getElementById('modalP').innerHTML = `Control Valve Calculation HP2 = ${global_HP2} <br>we have reduced Pump Flowrate/Capacity (Q) by 55% <br>Forumla Used:<br>HP2=(Q2/Q1)^3*HP1<br><br><br>`;
+        document.getElementById('modalP').innerHTML = `Control Valve Calculation HP2 = ${global_HP2.toFixed(2)} <br>we have reduced Pump Flowrate/Capacity (Q) by 55% <br>Forumla Used:<br>HP2=(Q2/Q1)^3*HP1<br><br><br>`;
     }
 }
