@@ -61,8 +61,9 @@ function mainCalculation(){
         RoomWidth,
         Lumens,
         calcN,
+        specDataIdx,
     }){
-        
+        specDataIdx=parseInt(specDataIdx);
         var output={}
         if(calcN){
 
@@ -83,6 +84,7 @@ function mainCalculation(){
         output["EPI"]=(MEC*12)/(RoomWidth*RoomLen);
         output["nx"]=Math.round(Math.sqrt((RoomLen/RoomWidth)*N+((RoomLen-RoomWidth)/(Math.pow(RoomLen,2)*N))))
         output["ny"]=Math.round(N/output["nx"]);
+        output["investment"]=parseInt(specData[specDataIdx]["Cost per piece (Rs)"])*N;
 
         return output;
     }
@@ -98,6 +100,7 @@ function mainCalculation(){
         "RoomWidth":RoomWidth,
         "Lumens":Lumens, 
         "calcN":false,
+        "specDataIdx":1,
     
     }
 
@@ -113,9 +116,14 @@ function mainCalculation(){
                 tempdata["RatedCap"]=specData[i]["power"]
                 tempdata["Lumens"]=specData[i]["lumen"]
                 tempdata["calcN"]=true
+                tempdata["specDataIdx"]=i
                 
                 tempcalc=CalculateValues(tempdata);
                 // console.log(tempcalc)
+                var total_inv=(tempcalc["investment"]);
+                var net_saving=monBill-tempcalc["Bill"];
+                var roi=Math.round(total_inv/net_saving);
+
                 if(tempcalc["Bill"]<monBill && NTable<=tempdata["Eav"]<=currEav){
 
                     // console.log(tempcalc["nx"],tempcalc["ny"]);
@@ -133,6 +141,8 @@ function mainCalculation(){
                     <td>${specData[i]["Voltage (V)"]}</td>
                     <td>${specData[i]["Life"]}</td>
                     <td>${specData[i]["Application"]}</td>
+                    <td>${roi}</td>
+                    
                     </tr>`
                     totalString+=tempString
                 }
