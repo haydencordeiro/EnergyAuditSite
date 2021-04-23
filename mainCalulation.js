@@ -6,16 +6,16 @@
 function mainCalculation(){
 
     // Required inputs
-    var RatedCap=document.getElementById("RatedCap").value;
-    var DailyUsage=document.getElementById("DailyUsage").value;
-    var DaysPerMonth=document.getElementById("DaysPerMonth").value;
-    var NoOfLuminaries=document.getElementById("NoOfLuminaries").value;
-    var Tarrif=document.getElementById("tariff").value;
-    var RoomLen=document.getElementById("roomLength").value;
-    var RoomWidth=document.getElementById("roomWidth").value;
-    var RoomHeight=document.getElementById("roomHeight").value;
-    var Lumens=document.getElementById("Lumens").value;
-    var NTable=document.getElementById("buildingIdentification").value;
+    var RatedCap=parseInt(document.getElementById("RatedCap").value);
+    var DailyUsage=parseInt(document.getElementById("DailyUsage").value);
+    var DaysPerMonth=parseInt(document.getElementById("DaysPerMonth").value);
+    var NoOfLuminaries=parseInt(document.getElementById("NoOfLuminaries").value);
+    var Tarrif=parseInt(document.getElementById("tariff").value);
+    var RoomLen=parseInt(document.getElementById("roomLength").value);
+    var RoomWidth=parseInt(document.getElementById("roomWidth").value);
+    var RoomHeight=parseInt(document.getElementById("roomHeight").value);
+    var Lumens=parseInt(document.getElementById("Lumens").value);
+    var NTable=parseInt(document.getElementById("buildingIdentification").value);
 
     
     // Calculations
@@ -30,13 +30,15 @@ function mainCalculation(){
         var low=all[i-1];
         var high=all[i];
         var tempRi=0;
-        if((RI-low>high-RI )||(high==RI)){
+        if((RI-low<high-RI )||(high==RI)){
             tempRi=i;
         }
         else{
             tempRi=i-1;
         }
-        return tempnew[i];
+       
+       
+        return tempnew[tempRi];
     
     }
     
@@ -49,8 +51,12 @@ function mainCalculation(){
     const equipDropRef=document.getElementById("equipmentNameSingle");
     
     var LLF=0.8;
-    var RI=Math.round((RoomLen*RoomWidth)/(RoomHeight*(RoomLen+RoomWidth)));
+
+
+    var RI=(RoomLen*RoomWidth)/(RoomHeight*(RoomLen+RoomWidth));
     var UF=GetUF(RI);
+
+   
     
     function CalculateValues({RatedCap,
         DailyUsage,
@@ -68,10 +74,12 @@ function mainCalculation(){
         if(calcN){
 
             var N=Math.round((RoomLen*RoomWidth*NTable)/(Lumens*UF*LLF));
+            console.log(N);
         }
         else{
             N=NoOfLuminaries
         }
+        
         var MEC = (RatedCap*DailyUsage*DaysPerMonth*N)/1000;
         var Eav=(N*Lumens*UF*LLF)/(RoomLen*RoomWidth);
         
@@ -85,6 +93,7 @@ function mainCalculation(){
         output["nx"]=Math.round(Math.sqrt((RoomLen/RoomWidth)*N+((RoomLen-RoomWidth)/(Math.pow(RoomLen,2)*N))))
         output["ny"]=Math.round(N/output["nx"]);
         output["investment"]=parseInt(specData[specDataIdx]["Cost per piece (Rs)"])*N;
+        output["tempN"]=Math.round((RoomLen*RoomWidth*NTable)/(Lumens*UF*LLF));
 
         return output;
     }
@@ -160,10 +169,10 @@ function mainCalculation(){
         }
         if(totalString.length<2){
             var removeAll=document.getElementsByClassName("remove-nf");
-            console.log(removeAll);
+            // console.log(removeAll);
             for(var i=0;i<removeAll.length;i++){
                 removeAll[i].style.display="none";
-                console.log(removeAll[i])
+                // console.log(removeAll[i])
             }
             document.getElementById("show-nf").style.display="";
             document.getElementById("message-here").outerHTML="<p style='color:red'> <br>Note: <br>The entered lighting system provides lower than recommend illuminance causing inconvenience and inefficiency to the operator.<br> </p>";
@@ -250,7 +259,7 @@ function mainCalculation(){
 
 
 
-    document.getElementById("nooflights").value=calc["N"];
+    document.getElementById("nooflights").value=calc["tempN"];
     document.getElementById("Eav").value=calc["Eav"].toFixed(2);
        document.getElementById("rows").value=calc["nx"];
       document.getElementById("cols").value=calc["ny"];
