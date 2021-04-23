@@ -112,7 +112,7 @@ function pumpCalculation() {
 
 
 
-    var D2 = Math.pow((D * 0.7) / D, 3) * power;
+    var D2 = Math.pow((D * 0.95) / D, 3) * power;
     console.log("D2", D2);
     global_D2 = D2;
     var HP2 = Math.pow((Q * 0.55) / Q, 3) * HP;
@@ -131,10 +131,10 @@ function ModalCalculation(value) {
     var val = parseInt(value);
     if(val<=2)
     {
-        document.getElementById('modalP').innerHTML = `Impeller Calculation <br> P2 = ${global_D2.toFixed(2)} <br> we have reduced diameter by 75%<br>Forumla Used:<br>P2=(D2/D1)^3*P1<br><br><br>`;
+        document.getElementById('modalP').innerHTML = `Impeller Calculation <br> P2 = ${global_D2.toFixed(2)} kW <br> we have reduced diameter by 95%<br>`;
     }
     else if(val==3)
     {
-        document.getElementById('modalP').innerHTML = `Control Valve Calculation HP2 = ${global_HP2.toFixed(2)} <br>we have reduced Pump Flowrate/Capacity (Q) by 55% <br>Forumla Used:<br>HP2=(Q2/Q1)^3*HP1<br><br><br>`;
+        document.getElementById('modalP').innerHTML = `Control Valve Calculation HP2 = ${global_HP2.toFixed(2)} <br>we have reduced Pump Flowrate/Capacity (Q) by 55% <br>`;
     }
 }
