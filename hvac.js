@@ -23,7 +23,7 @@ var Wc =  Wm*0.92*nt
 
 
 
-var Qe=ql*d*CP*(Tei-Teo)/3024
+var Qe=(ql*d*CP*(Tei-Teo))/3024
 
 document.getElementById("Qe").value=Qe;
 
