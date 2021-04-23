@@ -25,20 +25,20 @@ var Wc =  Wm*0.92*nt
 var Qe=(ql*d*CP*(Tei-Teo))/3024
 
 
-document.getElementById("Qe").value=Qe;
+document.getElementById("Qe").value=Qe.toFixed(2);
 
 var R=Qe/3.51*3600;
 // document.getElementById("R").value=R;
-document.getElementById("Wc").value=Wc;
+document.getElementById("Wc").value=Wc.toFixed(2);
 
-var COP= (Qe*3024)/ Wc;         
-document.getElementById("COP").value=COP;
+var COP= (Qe*3024)/ (Wc*860);         
+document.getElementById("COP").value=COP.toFixed(2);
 
-var EER = Qe/Wc;
-document.getElementById("EER").value=EER;
+var EER = (Qe*3.51)/Wc;
+document.getElementById("EER").value=EER.toFixed(2);
   
 var SPC = Wc/Qe;
-document.getElementById("SPC").value=SPC;
+document.getElementById("SPC").value=SPC.toFixed(2);
 
 
 }
