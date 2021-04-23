@@ -166,7 +166,7 @@ function mainCalculation(){
                 console.log(removeAll[i])
             }
             document.getElementById("show-nf").style.display="";
-            document.getElementById("message-here").outerHTML="<p style='color:red'> <br>Note: <br>The appliance has the energy potential suitable for the defined Area<br> </p>";
+            document.getElementById("message-here").outerHTML="<p style='color:red'> <br>Note: <br>The entered lighting system provides lower than recommend illuminance causing inconvenience and inefficiency to the operator.<br> </p>";
 
             
              totalString="";
