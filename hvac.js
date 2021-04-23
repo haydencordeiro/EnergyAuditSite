@@ -31,7 +31,7 @@ var R=Qe/3.51*3600;
 // document.getElementById("R").value=R;
 document.getElementById("Wc").value=Wc;
 
-var COP= Qe*3024/ Wc;         
+var COP= (Qe*3024)/ Wc;         
 document.getElementById("COP").value=COP;
 
 var EER = Qe/Wc;
