@@ -1,43 +1,41 @@
 
+function Hvac(){
+// water cooled Evaporator electric  motor
+
+
+// constants
+var CP=1;
+var d=997;
+
+
+//usre inputs
+var duration_run=parseFloat(document.getElementById("durationofrun").value);
+var ql=parseFloat(document.getElementById("Ql").value);
+var Tei=parseFloat(document.getElementById("Tei").value);
+var Teo=parseFloat(document.getElementById("Teo").value);
+var Wm=parseFloat(document.getElementById("Wm").value);
+var nt=parseFloat(document.getElementById("nt").value);//drop down
 
 
 
-// inputs
-var Q=1;
-var typeofEngine=0;
+// calc
+var Wc =  Wm * 0.98 *nt
 
 
-// calculations
+console.log(duration_run,d,Tei,Teo)
+var Qe=duration_run*d*(Tei-Teo)
+document.getElementById("Qe").value=Qe;
 
-var Wc=1;
-var COP
-if(typeofEngine==0){
-    var Wm=1;
-    var hm=1;
-    var ht=1;
-     Wc = Wm * hm * ht
+var R=Qe/3.51*3600;
+document.getElementById("R").value=R;
+document.getElementById("Wc").value=Wc;
+
+var COP= (Qe*d* CP*(Teo- Tei))/(3600*Wc)  
+document.getElementById("COP").value=COP;
+
+var EER = COP * 3.418 ;
+document.getElementById("EER").value=EER;
+  
+var SPC = 3.51 / COP
+
 }
-else if(typeofEngine==1){
-    Wc = We * ht
-}
-
-
-var fluid=true;//water
-if(fluid){
-
-    var To=1;
-    var Ti=1;
-    COP= Q*997 * 1*(To- Ti)/3600*Wc                                                   
-}
-else{
-
-    var hi=1;
-    var ho=1;
-    COP= Q*1.225 * (hi- ho)/3600*Wc                                                          
-}
-
-
-var  EER = COP * 3.418;
-var SPC = 3.51 / COP;
-console.log(EER);
-console.log(SPC);
