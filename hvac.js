@@ -19,23 +19,26 @@ var nt=parseFloat(document.getElementById("nt").value);//drop down
 
 
 // calc
-var Wc =  Wm * 0.98 *nt
+var Wc =  Wm*0.92*nt
 
 
-console.log(duration_run,d,Tei,Teo)
-var Qe=duration_run*d*(Tei-Teo)
+
+var Qe=ql*d*CP*(Tei-Teo)/3024
+
 document.getElementById("Qe").value=Qe;
 
 var R=Qe/3.51*3600;
 document.getElementById("R").value=R;
 document.getElementById("Wc").value=Wc;
 
-var COP= (Qe*d* CP*(Teo- Tei))/(3600*Wc)  
+var COP= Qe*3024/ Wc;         
 document.getElementById("COP").value=COP;
 
-var EER = COP * 3.418 ;
+var EER = Qe/Wc;
 document.getElementById("EER").value=EER;
   
-var SPC = 3.51 / COP
+var SPC = Wc/Qe;
+document.getElementById("SPC").value=SPC;
+
 
 }
