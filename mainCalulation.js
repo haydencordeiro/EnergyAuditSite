@@ -67,7 +67,7 @@ function mainCalculation(){
         var output={}
         if(calcN){
 
-            var N=(RoomLen*RoomWidth*NTable)/(Lumens*UF*LLF);
+            var N=Math.round((RoomLen*RoomWidth*NTable)/(Lumens*UF*LLF));
         }
         else{
             N=NoOfLuminaries
@@ -112,7 +112,9 @@ function mainCalculation(){
         for(var i=0;i<specData.length;i++){
             if(i!=equipDropRef.value){
 
-            
+                if(i==6){
+                    break;
+                }
                 tempdata["RatedCap"]=specData[i]["power"]
                 tempdata["Lumens"]=specData[i]["lumen"]
                 tempdata["calcN"]=true
@@ -120,15 +122,13 @@ function mainCalculation(){
                 
                 tempcalc=CalculateValues(tempdata);
                 // console.log(tempcalc)
-                var total_inv=(tempcalc["investment"]);
+                var total_inv=Math.round(tempcalc["investment"]);
                 var net_saving=monBill-tempcalc["Bill"];
                 var roi=Math.round(total_inv/net_saving);
 
                 if(tempcalc["Bill"]<monBill && NTable<=tempdata["Eav"]<=currEav){
 
-                    // console.log(tempcalc["nx"],tempcalc["ny"]);
-                    // var tempString=specData[i]["name"]+" "+specData[i]["power"]+"w"+" "+tempcalc["N"].toFixed(2)+" "+tempcalc["Eav"].toFixed(2)
-                    // totalString+="<br>"+tempString;
+
                     var tempString=`
                     <tr>
                     
@@ -136,24 +136,89 @@ function mainCalculation(){
                     <td>${specData[i]["power"]}</td>
                     <td>${specData[i]["lumen"]}</td>
                     <td>${specData[i]["System efficacy"]}</td>
-                    <td>${specData[i]["Color Temperature"]}</td>
+                 
                     <td>${specData[i]["CRI"]}</td>
-                    <td>${specData[i]["Voltage (V)"]}</td>
+                    
                     <td>${specData[i]["Life"]}</td>
                     <td>${specData[i]["Application"]}</td>
+                    <td>${tempcalc["N"]}</td>
+                    <td>${Math.round(net_saving/Tarrif)}</td>
+                    <td>${Math.round(net_saving)}</td>
+                    <td>${specData[i]["Cost per piece (Rs)"]}</td>
+                    <td>${total_inv}</td>
                     <td>${roi}</td>
                     
                     </tr>`
                     totalString+=tempString
                 }
-            
+                
+                
+  
+
             }
 
         }
         if(totalString.length<2){
+            var removeAll=document.getElementsByClassName("remove-nf");
+            console.log(removeAll);
+            for(var i=0;i<removeAll.length;i++){
+                removeAll[i].style.display="none";
+                console.log(removeAll[i])
+            }
+            document.getElementById("show-nf").style.display="";
+            document.getElementById("message-here").outerHTML="<p style='color:red'> <br>Note: <br>The appliance has the energy potential suitable for the defined Area<br> </p>";
 
-             totalString="<p style='color:red'> <br>Note: <br>The appliance has the energy potential suitable for the defined Area<br> </p>";
-        }
+            
+             totalString="";
+        
+             for(var i=0;i<specData.length;i++){
+                if(i!=equipDropRef.value){
+    
+                    if(i==6){
+                        break;
+                    }
+                    tempdata["RatedCap"]=specData[i]["power"]
+                    tempdata["Lumens"]=specData[i]["lumen"]
+                    tempdata["calcN"]=true
+                    tempdata["specDataIdx"]=i
+                    
+                    tempcalc=CalculateValues(tempdata);
+                    // console.log(tempcalc)
+                    var total_inv=(tempcalc["investment"]);
+                    var net_saving=monBill-tempcalc["Bill"];
+                    var roi=Math.round(total_inv/net_saving);
+    
+                    if( NTable<=tempcalc["Eav"]<=NTable+15){
+    
+    
+                        var tempString=`
+                        <tr>
+                        
+                        <td>${specData[i]["name"]}</td>
+                        <td>${specData[i]["power"]}</td>
+                        <td>${specData[i]["lumen"]}</td>
+                        <td>${specData[i]["System efficacy"]}</td>
+                     
+                        <td>${specData[i]["CRI"]}</td>
+                        
+                        <td>${specData[i]["Life"]}</td>
+                        <td>${specData[i]["Application"]}</td>
+                        <td>${tempcalc["Eav"]}</td>
+                        
+                        <td>${tempcalc["N"]}</td>
+                        
+                        <td>${specData[i]["Cost per piece (Rs)"]}</td>
+                        <td>${total_inv}</td>
+                   
+                        
+                        </tr>`
+                        totalString+=tempString
+                    }
+                
+                }
+    
+            }
+            }
 
 
         recTable.innerHTML=totalString;
@@ -189,6 +254,8 @@ function mainCalculation(){
     document.getElementById("Eav").value=calc["Eav"].toFixed(2);
        document.getElementById("rows").value=calc["nx"];
       document.getElementById("cols").value=calc["ny"];
+      document.getElementById("deltax").value=(RoomLen/(calc["nx"]-1)).toFixed(2);
+      document.getElementById("deltay").value=(RoomWidth/(calc["ny"]-1)).toFixed(2);
 }
     
   
