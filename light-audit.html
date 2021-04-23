@@ -67,6 +67,7 @@
                                 <!-- <option selected>Building Type</option>
                                 <optgroup label="Commerical Buildings"> -->
                                 <!-- <optgroup label="Offices"> -->
+                                <option value="0" selected></option>
                                 <option value="300">General Offices</option>
                                 <option value="500">Deep Plan General Offices</option>
                                 <option value="300">Computer Works Station</option>
@@ -84,6 +85,7 @@
                                 name="rateType">
                                 <option selected>Rate Type</option>
                                 <option value="1">Tiered</option>
+                                <option value="2">Fixed</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -162,7 +164,7 @@
                                 <input type="number" class="form-control" id="DailyUsage" name="DailyUsage">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="DaysPerMonth" class="form-label">Days per Month</label>
+                                <label for="DaysPerMonth" class="form-label">Operating per Month</label>
                                 <input type="number" class="form-control" id="DaysPerMonth" name="DaysPerMonth">
                             </div>
 
@@ -187,7 +189,7 @@
                         <th scope="col">Voltage (V)</th>
 
 
-                        <th scope="col">Life (e3)</th>
+                        <th scope="col">Life (10<sup>3</sup>)</th>
                         <th scope="col">Application</th>
 
                     </tr>
@@ -266,14 +268,15 @@
                                     aria-readonly="true">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="epi" class="form-label">Energy Performance Index (kWh/m2/year)</label>
+                                <label for="epi" class="form-label">Energy Performance Index
+                                    (kWh/m<sup>2</sup>/year)</label>
                                 <input type="number" class="form-control" id="epi" name="epi" readonly
                                     aria-readonly="true">
                             </div>
                             <h6>Room Design</h6>
 
                             <div class="mb-3 col-md-4">
-                                <label for="nooflights" class="form-label">Required no of Lights</label>
+                                <label for="nooflights" class="form-label">Required number of Lights</label>
                                 <input type="number" class="form-control" id="nooflights" name="nooflights" readonly
                                     aria-readonly="true">
                             </div>
@@ -300,12 +303,13 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-4">
-                                <label for="rows" class="form-label">Distance between Luminaries along Length</label>
+                                <label for="rows" class="form-label">Distance between Luminaries along Length
+                                    (m)</label>
                                 <input type="number" class="form-control" id="deltax" name="deltax" readonly
                                     aria-readonly="true">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="cols" class="form-label">Distance between Luminaries along width</label>
+                                <label for="cols" class="form-label">Distance between Luminaries along width (m)</label>
                                 <input type="number" class="form-control" id="deltay" name="deltay" readonly
                                     aria-readonly="true">
                             </div>
@@ -323,9 +327,9 @@
                                 <th scope="col">Lumen</th>
                                 <th scope="col">System Efficacy(lm/W)</th>
                                 <th scope="col">CRI</th>
-                                <th scope="col">Life (e3)</th>
+                                <th scope="col">Life (10<sup>3</sup>)</th>
                                 <th scope="col">Application</th>
-                                <th scope="col" id="show-nf">Eav</th>
+                                <th scope="col" id="show-nf">Illuminace</th>
 
                                 <th scope="col">Required Luminaries</th>
                                 <th scope="col" class="remove-nf">Energy Saving(units)</th>

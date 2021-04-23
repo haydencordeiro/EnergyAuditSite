@@ -203,7 +203,7 @@ function mainCalculation(){
                         
                         <td>${specData[i]["Life"]}</td>
                         <td>${specData[i]["Application"]}</td>
-                        <td>${tempcalc["Eav"]}</td>
+                        <td>${Math.round(tempcalc["Eav"])}</td>
                         
                         <td>${tempcalc["N"]}</td>
                         

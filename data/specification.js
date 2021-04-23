@@ -1,6 +1,6 @@
 
 var specData=[
-    {"name":"PowerBalance 29.5","power":"29.5","lumen":"3400","System efficacy":"115","Star rating":"","Color Temperature":"4000","CRI":"80","Voltage (V)":"240","Life":"50","Source type":"LED","Application":"General office, Meeting room","Cost per piece (Rs)":"500"},
+    {"name":"PowerBalance 29.5W","power":"29.5","lumen":"3400","System efficacy":"115","Star rating":"","Color Temperature":"4000","CRI":"80","Voltage (V)":"240","Life":"50","Source type":"LED","Application":"General office, Meeting room","Cost per piece (Rs)":"500"},
     {"name":"GreenLEDi 18W","power":"18","lumen":"2000","System efficacy":"110","Star rating":"","Color Temperature":"3000, 4000, 6500","CRI":"80","Voltage (V)":"240","Life":"50","Source type":"LED","Application":"Reception, Conference room, Retail stores","Cost per piece (Rs)":"200"},
     {"name":"FullGlow 27W","power":"27","lumen":"2900","System efficacy":"110","Star rating":"","Color Temperature":"4000, 6500","CRI":"80","Voltage (V)":"240","Life":"50","Source type":"LED","Application":"General office","Cost per piece (Rs)":"450"},
     {"name":"FullGlow 32W","power":"32","lumen":"3400","System efficacy":"110","Star rating":"","Color Temperature":"4000, 6500","CRI":"80","Voltage (V)":"240","Life":"50","Source type":"LED","Application":"General office","Cost per piece (Rs)":"500"},
