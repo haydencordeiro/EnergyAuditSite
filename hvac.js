@@ -34,7 +34,7 @@ document.getElementById("Wc").value=Wc.toFixed(2);
 var COP= (Qe*3.51)/ (Wc);         
 document.getElementById("COP").value=COP.toFixed(2);
 
-var EER = (Qe*3.418*3.51)/Wc;
+var EER = (Qe*3.51)/Wc;
 document.getElementById("EER").value=EER.toFixed(2);
   
 var SPC = Wc/Qe;
