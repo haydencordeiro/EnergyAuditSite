@@ -1,4 +1,5 @@
 
+
 function findpressure(altitude)
 {
 if ((altitude<-5000)||(altitude>11000)) alert ("Altitude accurate from -5,000 to 11,000m");
@@ -119,21 +120,22 @@ while ((count < 10000)&&(error > 0.001))
 if (count > 9999) alert ("calculation error in wet bulb temperature");
 return (t_wb);
 }
-function psychoCalc({drybulbvalue,wetbulbvalue,altitudevalue,humdityvalue})
+
+function psychoCalc({drybulb,wetbulb,altitude,humdity})
 {  
    var t=0.0; 
    
-   if (!(t=parseFloat(drybulbvalue))) 
+   if (!(t=parseFloat(drybulb))) 
      { 
        alert("Please enter a number for Dry Bulb temperature");
        return;
      }
    
-   rh=parseFloat(humdityvalue);   
+   rh=parseFloat(humdity);   
   
-   altitude=parseFloat(altitudevalue);
+   altitude=parseFloat(altitude);
         
-   if (t_wb=parseFloat(wetbulbvalue)) 
+   if (t_wb=parseFloat(wetbulb)) 
     {
      if (t_wb>t) 
        {
@@ -148,7 +150,6 @@ function psychoCalc({drybulbvalue,wetbulbvalue,altitudevalue,humdityvalue})
      ws=humidity_ratio(p_ws,p);
      mew=degree_saturation(w,ws); 
      rh=rel_humidity(mew,p_ws,p);
-    //  rh=rel_humidity(mew,p_ws,p);
      v=specific_volume(t,w,p);
      h=enthalpy(w,t);
      p_w=equation_36(p,w);
@@ -171,7 +172,7 @@ function psychoCalc({drybulbvalue,wetbulbvalue,altitudevalue,humdityvalue})
      t_wb=calcwetbulb(t,p,w);
      }
      
-   else if (t_d=parseFloat(dewpointvalue))
+   else if (t_d=parseFloat(dewpoint))
      {
      p = findpressure(altitude);
      p_w=saturation_pressure(t_d);
@@ -196,35 +197,32 @@ function psychoCalc({drybulbvalue,wetbulbvalue,altitudevalue,humdityvalue})
    
    if (rh<0)
      {
-       humdityvalue=0;
-       wetbulbvalue = "";
-       dewpointvalue = "";
+       humdity=0;
+       wetbulb = "";
+       dewpoint = "";
        psychoCalc();
      }
    
-   drybulbvalue = Math.round(t*100)/100;    
-   wetbulbvalue = Math.round(t_wb*100)/100; 
-   humdityvalue = Math.round(rh); 
-   dewpointvalue = Math.round(t_d*100)/100; 
-   altitudevalue = Math.round(altitude); 
-            
-   enthalpyvalue = Math.round(h*100)/100; 
-   densityvalue = Math.round(rho*100)/100; 
-   hum_ratiovalue = Math.round(w*10000)/10000; 
-   pressurevalue = Math.round(p);
-   spec_volumevalue = Math.round(v*1000)/1000; 
-   p_wvalue = Math.round(p_w);
-   p_wsvalue = Math.round(p_ws); 
-   console.log({drybulbvalue,wetbulbvalue,humdityvalue,dewpointvalue,altitudevalue,enthalpyvalue,densityvalue,hum_ratiovalue,pressurevalue,spec_volumevalue,
-  p_wvalue,p_wsvalue})
+   drybulb = Math.round(t*100)/100;    
+   wetbulb = Math.round(t_wb*100)/100; 
+   humdity = Math.round(rh); 
+   dewpoint = Math.round(t_d*100)/100; 
+   altitude = Math.round(altitude);          
+   enthalpy= Math.round(h*100)/100; 
+  density = Math.round(rho*100)/100; 
+  hum_ratio = Math.round(w*10000)/10000; 
+  pressure = Math.round(p);
+  spec_volume = Math.round(v*1000)/1000; 
+  p_w = Math.round(p_w);
+  p_ws = Math.round(p_ws); 
+  console.log({drybulb,wetbulb,humdity,dewpoint,altitude,enthalpy,density,hum_ratio,pressure,specific_volume,p_w,p_ws})
    return;
 }
 
 
-
 psychoCalc({
-  "drybulbvalue":75,
-  "wetbulbvalue":68,
-  "altitudevalue":0,
-  "humdityvalue":0.70
+  "drybulb":75,
+  "wetbulb":68,
+  "altitude":0,
+  "humdity":0.70
 })
