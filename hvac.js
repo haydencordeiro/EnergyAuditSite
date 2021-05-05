@@ -41,4 +41,6 @@ var SPC = Wc/Qe;
 document.getElementById("SPC").value=SPC.toFixed(2);
 
 
+
+)
 }
