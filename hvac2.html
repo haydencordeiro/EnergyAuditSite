@@ -42,7 +42,7 @@
     <div class="container">
         <div class="row justify-content-center text-center mt-5 mb-5">
             <div class="col-xs-9">
-                <h1>HVAc Audit</h1>
+                <h1>HVAC Audit ( air cooled compressor)</h1>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -75,13 +75,12 @@
                                 <div id="QlHelp" class="form-text"></div>
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="Tei" class="form-label">Liquid temperature at evaporator inlet, Te-i</label>
+                                <label for="Tei" class="form-label">Enthalpy of air at condenser inlet, hair-I </label>
                                 <input type="text" class="form-control" id="Tei" name="Tei" aria-describedby="TeiHelp">
                                 <div id="TeiHelp" class="form-text">°C</div>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="Teo" class="form-label">Liquid temperature at evaporator outlet,
-                                    Te-o</label>
+                                <label for="Teo" class="form-label">Enthalpy of air at condenser outlet, hair-o </label>
                                 <input type="text" class="form-control" id="Teo" name="Teo" aria-describedby="TeoHelp">
                                 <div id="TeoHelp" class="form-text">°C</div>
                             </div>
@@ -93,7 +92,12 @@
 
 
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="Hvac()">Submit</button>
+                        <iframe
+                            src="https://www.herramientasingenieria.com/onlinecalc/psychrometrics/psychrometrics.html"
+                            title="psycho chart" style="width: 100%; height: 500px;""
+                            >
+                        </iframe>
+                        <button type=" button" class="btn btn-primary" onclick="Hvac()">Submit</button>
 
                     </form>
                 </div>

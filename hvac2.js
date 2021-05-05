@@ -19,10 +19,10 @@ function Hvac(){
     
     
     // calc
+    
+    
     var Wc =  Wm*0.92*nt
-    
-    
-    var Qe=(ql*d*CP*(Tei-Teo))/3.51*3600
+    var Qe=(ql*d*(Tei-Teo))/(3.51*3600)
     
     
     document.getElementById("Qe").value=Qe.toFixed(2);
