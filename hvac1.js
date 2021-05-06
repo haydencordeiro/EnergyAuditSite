@@ -40,6 +40,8 @@ document.getElementById("EER").value=EER.toFixed(2);
 var SPC = Wc/Qe;
 document.getElementById("SPC").value=SPC.toFixed(2);
 
+
+// recommendation
 tableData=[]
 
 waterRec.forEach((o)=>{
@@ -78,6 +80,7 @@ for(var i=0;i<tableData.length;i++){
     finalTableData+=temp;
 }
 document.getElementById("output-table-body").innerHTML=finalTableData;
+// recommendation end
 
 
 }
