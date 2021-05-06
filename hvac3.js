@@ -40,7 +40,47 @@ function Hvac(){
     var SPC = 3.51 / COP;
     document.getElementById("SPC").value=SPC.toFixed(2);
     
+    // recommendation
+tableData=[]
+
+waterRec.forEach((o)=>{
+
+    star=["5 Star","4 Star","3 Star","2 Star","1 Star"]
+    for(var i=0;i<star.length;i++){
+        starR=star[i];
+        tempD=o;
+        tempD["selectedStar"]=starR
+        if(parseFloat(starR)>EER){
+
+            tableData.push(o);
+        }
+        break;
+    }
+
     
+})
+console.log(tableData)
+finalTableData=""
+for(var i=0;i<tableData.length;i++){
+
+    temp=`
+    <tr>
+    <td scope="col">${tableData[i]["Company"]}</td>
+    <td scope="col">${tableData[i]["Model"]}</td>
+    <td scope="col">${tableData[i]["Refrigerant"]}</td>
+    <td scope="col">${tableData[i]["Nominal Cooling Capacity"]}</td>
+    <td scope="col">${tableData[i]["Length"]}</td>
+    <td scope="col">${tableData[i]["Width"]}</td>
+    <td scope="col">${tableData[i]["Height"]}</td>
+    <td scope="col">${tableData[i]["Power Supply"]}</td>
+    <td scope="col">${tableData[i]["selectedStar"]}</td>
+    <tr>
+`;
+    finalTableData+=temp;
+}
+document.getElementById("output-table-body").innerHTML=finalTableData;
+// recommendation end
+
     }
 
 
