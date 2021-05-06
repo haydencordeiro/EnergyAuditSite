@@ -28,7 +28,7 @@ var Qe=(ql*d*CP*(Tei-Teo))/3024
 document.getElementById("Qe").value=Qe.toFixed(2);
 
 var R=Qe/3.51*3600;
-// document.getElementById("R").value=R;
+// document.getElementById("R").value=R;]
 document.getElementById("Wc").value=Wc.toFixed(2);
 
 var COP= (Qe*3.51)/ (Wc);         
@@ -40,7 +40,44 @@ document.getElementById("EER").value=EER.toFixed(2);
 var SPC = Wc/Qe;
 document.getElementById("SPC").value=SPC.toFixed(2);
 
+tableData=[]
+
+waterRec.forEach((o)=>{
+
+    star=["5 Star","4 Star","3 Star","2 Star","1 Star"]
+    for(var i=0;i<star.length;i++){
+        starR=star[i];
+        tempD=o;
+        tempD["selectedStar"]=starR
+        if(parseFloat(starR)>EER){
+
+            tableData.push(o);
+        }
+        break;
+    }
+
+    
+})
+console.log(tableData)
+finalTableData=""
+for(var i=0;i<tableData.length;i++){
+
+    temp=`
+    <tr>
+    <td scope="col">${tableData[i]["Company"]}</td>
+    <td scope="col">${tableData[i]["Model"]}</td>
+    <td scope="col">${tableData[i]["Refrigerant"]}</td>
+    <td scope="col">${tableData[i]["Nominal Cooling Capacity"]}</td>
+    <td scope="col">${tableData[i]["Length"]}</td>
+    <td scope="col">${tableData[i]["Width"]}</td>
+    <td scope="col">${tableData[i]["Height"]}</td>
+    <td scope="col">${tableData[i]["Power Supply"]}</td>
+    <td scope="col">${tableData[i]["selectedStar"]}</td>
+    <tr>
+`;
+    finalTableData+=temp;
+}
+document.getElementById("output-table-body").innerHTML=finalTableData;
 
 
-)
 }
