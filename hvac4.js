@@ -1,8 +1,8 @@
 
 function Hvac(){
     // air cooled Evaporator
-    
-    
+        
+    console.log("sadf");
     // constants
     var CP=1;
     var d=1.225;
@@ -82,3 +82,4 @@ document.getElementById("output-table-body").innerHTML=finalTableData;
 // recommendation end
 
     }
+

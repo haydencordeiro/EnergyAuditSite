@@ -69,28 +69,32 @@
                         <div class="row">
                             <div class="mb-3 col-md-4">
                                 <label for="durationofrun" class="form-label">Duration Of Run</label>
-                                <input type="text" class="form-control" id="durationofrun" name="durationofrun"
-                                    aria-describedby="motorVoltageHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="durationofrun"
+                                    name="durationofrun" aria-describedby="motorVoltageHelp">
                                 <div id="motorVoltageHelp" class="form-text">minutes</div>
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label for="Ql" class="form-label">Cooling Air flow in condenser, Qair </label>
-                                <input type="text" class="form-control" id="Ql" name="Ql" aria-describedby="QlHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="Ql" name="Ql"
+                                    aria-describedby="QlHelp">
                                 <div id="QlHelp" class="form-text"></div>
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label for="Tei" class="form-label">Enthalpy of air at condenser inlet, hair-I </label>
-                                <input type="text" class="form-control" id="Tei" name="Tei" aria-describedby="TeiHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="Tei" name="Tei"
+                                    aria-describedby="TeiHelp">
                                 <div id="TeiHelp" class="form-text">°C</div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="Teo" class="form-label">Enthalpy of air at condenser outlet, hair-o </label>
-                                <input type="text" class="form-control" id="Teo" name="Teo" aria-describedby="TeoHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="Teo" name="Teo"
+                                    aria-describedby="TeoHelp">
                                 <div id="TeoHelp" class="form-text">°C</div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="Wm" class="form-label">Power input to motor, Wm</label>
-                                <input type="text" class="form-control" id="Wm" name="Wm" aria-describedby="WmHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="Wm" name="Wm"
+                                    aria-describedby="WmHelp">
                                 <div id="WmHelp" class="form-text">kW</div>
                             </div>
 
@@ -101,7 +105,7 @@
                             title="psycho chart" style="width: 100%; height: 500px;""
                             >
                         </iframe>
-                        <button type=" button" class="btn btn-primary" onclick="Hvac()">Submit</button>
+                        <!-- <button type=" button" class="btn btn-primary" onclick="Hvac()">Submit</button> -->
 
                     </form>
                 </div>
@@ -117,27 +121,27 @@
                         <div class="row">
                             <!-- <div class="mb-3 col-md-6">
                                 <label for="monthlyConsumption" class="form-label">Monthly Energy Consumption</label>
-                                <input type="text" class="form-control" id="monthlyConsumption"
+                                <input onchange="Hvac()" type="text" class="form-control" id="monthlyConsumption"
                                     name="monthlyConsumption" readonly aria-readonly="true"
                                     aria-describedby="monthlyConsumptionHelp">
                                 <div id="monthlyConsumptionHelp" class="form-text">Units</div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="monthlyBill" class="form-label">Monthly Bill</label>
-                                <input type="text" class="form-control" id="monthlyBill" name="monthlyBill" readonly
+                                <input onchange="Hvac()" type="text" class="form-control" id="monthlyBill" name="monthlyBill" readonly
                                     aria-readonly="true" aria-describedby="monthlyBillHelp">
                                 <div id="monthlyBillHelp" class="form-text">Rs.</div>
                             </div> -->
                             <div class="mb-3 col-md-6">
                                 <label for="Qe" class="form-label">Refrigeration Effect, Qe</label>
-                                <input type="text" class="form-control" id="Qe" name="Qe" readonly aria-readonly="true"
-                                    aria-describedby="QeHelp">
+                                <input onchange="Hvac()" onchange="Hvac()" type="text" class="form-control" id="Qe"
+                                    name="Qe" readonly aria-readonly="true" aria-describedby="QeHelp">
                                 <div id="QeHelp" class="form-text">TR</div>
                             </div>
 
                             <!-- <div class="mb-3 col-md-6">
                                 <label for="R" class="form-label">Refrigeration Effect, R</label>
-                                <input type="text" class="form-control" id="R" name="R" readonly aria-readonly="true"
+                                <input onchange="Hvac()" onchange="Hvac()" type="text" class="form-control" id="R" name="R" readonly aria-readonly="true"
                                     aria-describedby="RHelp">
                                 <div id="RHelp" class="form-text">kJ/h</div>
                             </div> -->
@@ -146,15 +150,15 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="Wc" class="form-label">Estimated Compressor shaft power, Wc</label>
-                                <input type="text" class="form-control" id="Wc" name="Wc" readonly aria-readonly="true"
-                                    aria-describedby="WcHelp">
+                                <input onchange="Hvac()" onchange="Hvac()" type="text" class="form-control" id="Wc"
+                                    name="Wc" readonly aria-readonly="true" aria-describedby="WcHelp">
                                 <div id="WcHelp" class="form-text">kW</div>
                             </div>
 
                             <div class="mb-3 col-md-6">
                                 <label for="COP" class="form-label">Coefficient of Performance, COP</label>
-                                <input type="text" class="form-control" id="COP" name="COP" readonly
-                                    aria-readonly="true">
+                                <input onchange="Hvac()" onchange="Hvac()" type="text" class="form-control" id="COP"
+                                    name="COP" readonly aria-readonly="true">
                                 <div id="WcHelp" class="form-text">pu</div>
 
 
@@ -163,15 +167,15 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="EER" class="form-label">Energy Efficiency Ratio, EER</label>
-                                <input type="text" class="form-control" id="EER" name="EER" readonly
-                                    aria-readonly="true" aria-describedby="EERHelp">
+                                <input onchange="Hvac()" onchange="Hvac()" type="text" class="form-control" id="EER"
+                                    name="EER" readonly aria-readonly="true" aria-describedby="EERHelp">
                                 <div id="EERHelp" class="form-text"></div>
                             </div>
 
                             <div class="mb-3 col-md-6">
                                 <label for="SPC" class="form-label">Specific power consumption, SPC</label>
-                                <input type="text" class="form-control" id="SPC" name="SPC" readonly
-                                    aria-readonly="true">
+                                <input onchange="Hvac()" onchange="Hvac()" type="text" class="form-control" id="SPC"
+                                    name="SPC" readonly aria-readonly="true">
                                 <div id="WcHelp" class="form-text">kW/TR</div>
 
 

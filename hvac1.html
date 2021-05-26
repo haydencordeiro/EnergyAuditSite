@@ -69,29 +69,33 @@
                         <div class="row">
                             <div class="mb-3 col-md-4">
                                 <label for="durationofrun" class="form-label">Duration Of Run</label>
-                                <input type="text" class="form-control" id="durationofrun" name="durationofrun"
-                                    aria-describedby="motorVoltageHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="durationofrun"
+                                    name="durationofrun" aria-describedby="motorVoltageHelp">
                                 <div id="motorVoltageHelp" class="form-text">minutes</div>
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label for="Ql" class="form-label">Evaporator Liquid flow, Ql</label>
-                                <input type="text" class="form-control" id="Ql" name="Ql" aria-describedby="QlHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="Ql" name="Ql"
+                                    aria-describedby="QlHelp">
                                 <div id="QlHelp" class="form-text"></div>
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label for="Tei" class="form-label">Liquid temperature at evaporator inlet, Te-i</label>
-                                <input type="text" class="form-control" id="Tei" name="Tei" aria-describedby="TeiHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="Tei" name="Tei"
+                                    aria-describedby="TeiHelp">
                                 <div id="TeiHelp" class="form-text">°C</div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="Teo" class="form-label">Liquid temperature at evaporator outlet,
                                     Te-o</label>
-                                <input type="text" class="form-control" id="Teo" name="Teo" aria-describedby="TeoHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="Teo" name="Teo"
+                                    aria-describedby="TeoHelp">
                                 <div id="TeoHelp" class="form-text">°C</div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="Wm" class="form-label">Power input to motor, Wm</label>
-                                <input type="text" class="form-control" id="Wm" name="Wm" aria-describedby="WmHelp">
+                                <input onchange="Hvac()" type="text" class="form-control" id="Wm" name="Wm"
+                                    aria-describedby="WmHelp">
                                 <div id="WmHelp" class="form-text">kW</div>
                             </div>
 
