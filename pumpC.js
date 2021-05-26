@@ -11,6 +11,7 @@ var symptomTable = [
 
 var global_D2;
 var global_HP2;
+var global_P2;
 function pumpCalculation() {
     // // inputs
     // // var fluid_density = 997;
@@ -118,6 +119,8 @@ function pumpCalculation() {
     var HP2 = Math.pow((Q * 0.55) / Q, 3) * HP;
     console.log("HP2", HP2);
     global_HP2 = HP2;
+    var N2=0.85*N1;
+    global_P2=Math.pow((N2/N1),3)*power
     // symptomTable[0][1]="Impeller Trimming will use "+D2+"power";
     // symptomTable[1][1]="Impeller Trimming will use "+D2+"power";
     // symptomTable[2][1]="Control Flow Rate using Valve recommended"+HP2+"";
@@ -137,4 +140,9 @@ function ModalCalculation(value) {
     {
         document.getElementById('modalP').innerHTML = `Control Valve Calculation HP2 = ${global_HP2.toFixed(2)} <br>we have reduced Pump Flowrate/Capacity (Q) by 55% <br>`;
     }
+    else if(val>=5){
+        document.getElementById('modalP').innerHTML = `Calculation for Motor Power (P2) = ${global_P2.toFixed(2)} <br>we have reduced N2 by 85% <br>`;
+
+    }
+    console.log(val);
 }

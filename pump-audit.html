@@ -465,7 +465,7 @@
             document.getElementById('application').value = symptomTable[v][2];
             console.log(symptomTable[v][2]);
 
-            if (v <= 2) {
+            if (v <= 2 || v >= 4 && v <= 6) {
                 document.getElementById('impellerrow').classList.add("impeller");
                 document.getElementById('impellerCalcBtn').style.display = "block";
             }
