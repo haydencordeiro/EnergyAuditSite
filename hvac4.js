@@ -59,10 +59,17 @@ AirRec.forEach((o)=>{
 
     
 })
+
+var allRefs=["R22","R134A","R410A","R407C" ,""]
+
+
+var selectedRef=parseInt(document.getElementById("refrigerant").value);
+var recommendedRef=allRefs[selectedRef]
+
 console.log(tableData)
 finalTableData=""
 for(var i=0;i<tableData.length;i++){
-
+    if(tableData[i]["Refrigerant"].includes(recommendedRef)){
     temp=`
     <tr>
     <td scope="col">${tableData[i]["Company"]}</td>
@@ -77,6 +84,7 @@ for(var i=0;i<tableData.length;i++){
     <tr>
 `;
     finalTableData+=temp;
+    }
 }
 document.getElementById("output-table-body").innerHTML=finalTableData;
 // recommendation end

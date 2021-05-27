@@ -59,25 +59,36 @@ waterRec.forEach((o)=>{
     }
 
     
+
 })
+var allRefs=["R22","R134A","R410A","R407C" ,""]
+
+
+var selectedRef=parseInt(document.getElementById("refrigerant").value);
+var recommendedRef=allRefs[selectedRef]
+
+
 console.log(tableData)
 finalTableData=""
 for(var i=0;i<tableData.length;i++){
+    if(recommendedRef==tableData[i]["Refrigerant"])
+    {
+        temp=`
+        <tr>
+        <td scope="col">${tableData[i]["Company"]}</td>
+        <td scope="col">${tableData[i]["Model"]}</td>
+        <td scope="col">${tableData[i]["Refrigerant"]}</td>
+        <td scope="col">${tableData[i]["Nominal Cooling Capacity"]}</td>
+        <td scope="col">${tableData[i]["Length"]}</td>
+        <td scope="col">${tableData[i]["Width"]}</td>
+        <td scope="col">${tableData[i]["Height"]}</td>
+        <td scope="col">${tableData[i]["Power Supply"]}</td>
+        <td scope="col">${tableData[i]["selectedStar"]}</td>
+        <tr>
+    `;
+        finalTableData+=temp;
+    }
 
-    temp=`
-    <tr>
-    <td scope="col">${tableData[i]["Company"]}</td>
-    <td scope="col">${tableData[i]["Model"]}</td>
-    <td scope="col">${tableData[i]["Refrigerant"]}</td>
-    <td scope="col">${tableData[i]["Nominal Cooling Capacity"]}</td>
-    <td scope="col">${tableData[i]["Length"]}</td>
-    <td scope="col">${tableData[i]["Width"]}</td>
-    <td scope="col">${tableData[i]["Height"]}</td>
-    <td scope="col">${tableData[i]["Power Supply"]}</td>
-    <td scope="col">${tableData[i]["selectedStar"]}</td>
-    <tr>
-`;
-    finalTableData+=temp;
 }
 document.getElementById("output-table-body").innerHTML=finalTableData;
 // recommendation end

@@ -183,14 +183,24 @@
 
 
                             </div>
-                        </div>
+                            <label for="refrigerant" class="form-label">Refrigerant</label>
 
-                        <br><br>
-                </div>
-                </form>
-                <br><br>
-                <hr>
-                <!-- <h4 class="card-title">Recommendations</h4>
+                            <select class="form-select" aria-label="Select your Refrigerant" id="refrigerant"
+                                name="refrigerant" onchange="Hvac()">
+                                <option selected></option>
+                                <option value="1">R22</option>
+                                <option value="2">R134A</option>
+                                <option value="3">R410A </option>
+                                <option value="4">R407C </option>
+
+                            </select </div>
+
+                            <br><br>
+                        </div>
+                    </form>
+                    <br><br>
+                    <hr>
+                    <!-- <h4 class="card-title">Recommendations</h4>
                     <hr>
                     <h6>Energy Consumption and Bill</h6>
                     <div class="row">
@@ -236,33 +246,33 @@
                         </div>
                     </div> -->
 
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
 
 
-                    <th scope="col">Company</th>
-                    <th scope="col">Model</th>
-                    <th scope="col">Refrigerant</th>
-                    <th scope="col">Nominal Capacity</th>
-                    <th scope="col">Length</th>
-                    <th scope="col">Width</th>
-                    <th scope="col">Height</th>
-                    <th scope="col">Power Supply</th>
-                    <th scope="col">Star</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Refrigerant</th>
+                        <th scope="col">Nominal Capacity</th>
+                        <th scope="col">Length</th>
+                        <th scope="col">Width</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Power Supply</th>
+                        <th scope="col">Star</th>
 
-                </tr>
-            </thead>
-            <tbody id="output-table-body">
+                    </tr>
+                </thead>
+                <tbody id="output-table-body">
 
-            </tbody>
-        </table>
-        <br><br>
-    </div>
+                </tbody>
+            </table>
+            <br><br>
+        </div>
     </div>
 
 

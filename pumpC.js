@@ -83,6 +83,10 @@ function pumpCalculation() {
 
 
     console.log("Efficiency", EFF_pump);
+    if ((EFF_pump * 100) < 75) {
+        console.log("Ef", EFF_pump* 100)
+        document.getElementById("rec-table").style.display = "block";
+    }
     document.getElementById('overallEff').value = (EFF_pump * 100).toFixed(2);
     console.log("power factor", power_factor);
     document.getElementById('powerFactor').value = (power_factor * 1000).toFixed(2);
@@ -125,10 +129,7 @@ function pumpCalculation() {
     // symptomTable[1][1]="Impeller Trimming will use "+D2+"power";
     // symptomTable[2][1]="Control Flow Rate using Valve recommended"+HP2+"";
     // console.log(symptomTable);
-    if ((EFF_pump * 100) < 75) {
-        console.log("Ef", EFF_pump)
-        document.getElementById("rec-table").style.display = "block";
-    }
+
 }
 function ModalCalculation(value) {
     var val = parseInt(value);

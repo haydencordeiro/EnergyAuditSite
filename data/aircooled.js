@@ -2,7 +2,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS005",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "0.5",
             "Length": "660",
             "Width": "584",
@@ -17,7 +17,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS010",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "1",
             "Length": "660",
             "Width": "584",
@@ -32,7 +32,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS015",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "1.5",
             "Length": "1265",
             "Width": "559",
@@ -47,7 +47,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS020",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "2",
             "Length": "1265",
             "Width": "559",
@@ -62,7 +62,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS031",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "3.1",
             "Length": "1311",
             "Width": "658",
@@ -77,7 +77,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS051",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "4.4",
             "Length": "1311",
             "Width": "658",
@@ -92,7 +92,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS081",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "6.9",
             "Length": "1859",
             "Width": "759",
@@ -122,7 +122,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS101",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "9.8",
             "Length": "1859",
             "Width": "759",
@@ -152,7 +152,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS121",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "12.4",
             "Length": "1859",
             "Width": "759",
@@ -167,7 +167,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS161",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "13.8",
             "Length": "1859",
             "Width": "759",
@@ -182,7 +182,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS201",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "15.9",
             "Length": "2240",
             "Width": "866",
@@ -197,7 +197,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS251",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "19",
             "Length": "2240",
             "Width": "866",
@@ -212,7 +212,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS301",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "21.1",
             "Length": "2240",
             "Width": "866",
@@ -242,7 +242,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS351",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "23.9",
             "Length": "2240",
             "Width": "866",
@@ -272,7 +272,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS402",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "28.2",
             "Length": "3294",
             "Width": "1255",
@@ -287,7 +287,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS502",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "31.6",
             "Length": "3294",
             "Width": "1255",
@@ -332,7 +332,7 @@ var AirRec=[
         {
             "Company": "GENERAL",
             "Model": "ACCPS602",
-            "Refrigerant": "R134a, R22",
+            "Refrigerant": "R134A , R22",
             "Nominal capacity": "38.9",
             "Length": "3294",
             "Width": "1255",
