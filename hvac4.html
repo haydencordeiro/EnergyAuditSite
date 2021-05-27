@@ -82,18 +82,7 @@
                                     aria-describedby="QlHelp">
                                 <div id="QlHelp" class="form-text"></div>
                             </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="Tei" class="form-label">Enthalpy of air at condenser inlet, hair-I </label>
-                                <input onchange="Hvac()" type="text" class="form-control" id="Tei" name="Tei"
-                                    aria-describedby="TeiHelp">
-                                <div id="TeiHelp" class="form-text">°C</div>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="Teo" class="form-label">Enthalpy of air at condenser outlet, hair-o </label>
-                                <input onchange="Hvac()" type="text" class="form-control" id="Teo" name="Teo"
-                                    aria-describedby="TeoHelp">
-                                <div id="TeoHelp" class="form-text">°C</div>
-                            </div>
+
                             <div class="mb-3 col-md-6">
                                 <label for="Wm" class="form-label">Power input to motor, Wm</label>
                                 <input onchange="Hvac()" type="text" class="form-control" id="Wm" name="Wm"
@@ -109,7 +98,18 @@
                             >
                         </iframe>
                         <!-- <button type=" button" class="btn btn-primary" onclick="Hvac()">Submit</button> -->
-
+                            <div class="mb-3 col-md-4">
+                                <label for="Tei" class="form-label">Enthalpy of air at condenser inlet, hair-I </label>
+                                <input onchange="Hvac()" type="text" class="form-control" id="Tei" name="Tei"
+                                    aria-describedby="TeiHelp">
+                                <div id="TeiHelp" class="form-text">°C</div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="Teo" class="form-label">Enthalpy of air at condenser outlet, hair-o </label>
+                                <input onchange="Hvac()" type="text" class="form-control" id="Teo" name="Teo"
+                                    aria-describedby="TeoHelp">
+                                <div id="TeoHelp" class="form-text">°C</div>
+                            </div>
                     </form>
                 </div>
             </div>
@@ -183,7 +183,7 @@
 
 
                             </div>
-                            <label for="refrigerant" class="form-label">Refrigerant</label>
+                            <label for="refrigerant" class="form-label">Type of Refrigerant beign used</label>
 
                             <select class="form-select" aria-label="Select your Refrigerant" id="refrigerant"
                                 name="refrigerant" onchange="Hvac()">
