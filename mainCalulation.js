@@ -8,6 +8,7 @@ function mainCalculation(){
     // Required inputs
     var RatedCap=parseInt(document.getElementById("RatedCap").value);
     var DailyUsage=parseInt(document.getElementById("DailyUsage").value);
+
     var DaysPerMonth=parseInt(document.getElementById("DaysPerMonth").value);
     var NoOfLuminaries=parseInt(document.getElementById("NoOfLuminaries").value);
     var Tarrif=parseInt(document.getElementById("tariff").value);
@@ -69,12 +70,14 @@ function mainCalculation(){
         calcN,
         specDataIdx,
     }){
+
+
         specDataIdx=parseInt(specDataIdx);
         var output={}
         if(calcN){
 
             var N=Math.round((RoomLen*RoomWidth*NTable)/(Lumens*UF*LLF));
-            console.log(N);
+            // console.log(N);
         }
         else{
             N=NoOfLuminaries
@@ -82,7 +85,7 @@ function mainCalculation(){
         
         var MEC = (RatedCap*DailyUsage*DaysPerMonth*N)/1000;
         var Eav=(N*Lumens*UF*LLF)/(RoomLen*RoomWidth);
-        
+  
         output["MEC"] = MEC;
         output["Eav"] = Eav;
         output["N"] = N;
@@ -121,7 +124,7 @@ function mainCalculation(){
         for(var i=0;i<specData.length;i++){
             if(i!=equipDropRef.value){
 
-                if(i==6){
+                if(i==3){
                     break;
                 }
                 tempdata["RatedCap"]=specData[i]["power"]
@@ -134,30 +137,74 @@ function mainCalculation(){
                 var total_inv=Math.round(tempcalc["investment"]);
                 var net_saving=monBill-tempcalc["Bill"];
                 var roi=Math.round(total_inv/net_saving);
-
+ 
                 if(tempcalc["Bill"]<monBill && NTable<=tempdata["Eav"]<=currEav){
 
+                    var tempString=`     
+                    <br>
+                    <br>               <div>
+                    <h4>Recommendation ${i+1} </h4>
+                    <hr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Model Name</th>
+                                <th scope="col">Power(W)</th>
+                                <th scope="col">Lumen</th>
+                                <th scope="col">System Efficacy(lm/W)</th>
+                                <th scope="col">CRI</th>
+                                <th scope="col">Life (10<sup>3</sup>)</th>
+                                <th scope="col">Application</th>
+                            
 
-                    var tempString=`
-                    <tr>
-                    
-                    <td>${specData[i]["name"]}</td>
-                    <td>${specData[i]["power"]}</td>
-                    <td>${specData[i]["lumen"]}</td>
-                    <td>${specData[i]["System efficacy"]}</td>
-                 
-                    <td>${specData[i]["CRI"]}</td>
-                    
-                    <td>${specData[i]["Life"]}</td>
-                    <td>${specData[i]["Application"]}</td>
-                    <td>${tempcalc["N"]}</td>
-                    <td>${Math.round(net_saving/Tarrif)}</td>
-                    <td>${Math.round(net_saving)}</td>
-                    <td>${specData[i]["Cost per piece (Rs)"]}</td>
-                    <td>${total_inv}</td>
-                    <td>${roi}</td>
-                    
-                    </tr>`
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <td>${specData[i]["name"]}</td>
+                        <td>${specData[i]["power"]}</td>
+                        <td>${specData[i]["lumen"]}</td>
+                        <td>${specData[i]["System efficacy"]}</td>
+                     
+                        <td>${specData[i]["CRI"]}</td>
+                        
+                        <td>${specData[i]["Life"]}</td>
+                        <td>${specData[i]["Application"]}</td>
+
+
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="luminousEfficiency" class="form-label">Required Luminaries </label>
+                            <input type="number" class="form-control" value="${tempcalc["N"]}" readonly aria-readonly="true">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="luminousEfficiency" class="form-label">Energy Saving(units) </label>
+                            <input type="number" class="form-control" value="${Math.round(net_saving/Tarrif)}" readonly aria-readonly="true">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="luminousEfficiency" class="form-label">Cost(₹)</label>
+                            <input type="number" class="form-control" value="${Math.round(net_saving)}" readonly aria-readonly="true">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    <div class="mb-3 col-md-4">
+                    <label for="luminousEfficiency" class="form-label">Total Investment(₹)</label>
+                    <input type="number" class="form-control" value="${specData[i]["Cost per piece (Rs)"]}" readonly aria-readonly="true">
+                    </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="luminousEfficiency" class="form-label">Total Investment(₹)</label>
+                            <input type="number" class="form-control" value="${total_inv}" readonly aria-readonly="true">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="luminousEfficiency" class="form-label">Simple Payback(Months) </label>
+                            <input type="number" class="form-control" value="${roi}" readonly aria-readonly="true">
+                        </div>
+
+                    </div>
+                </div>`
+
                     totalString+=tempString
                 }
                 
@@ -174,8 +221,8 @@ function mainCalculation(){
                 removeAll[i].style.display="none";
                 // console.log(removeAll[i])
             }
-            document.getElementById("show-nf").style.display="";
-            document.getElementById("message-here").outerHTML="<p style='color:red'> <br>Note: <br>The entered lighting system provides lower than recommend illuminance causing inconvenience and inefficiency to the operator.<br> </p>";
+            // document.getElementById("show-nf").style.display="";
+            // document.getElementById("message-here").outerHTML="<p style='color:red'> <br>Note: <br>The entered lighting system provides lower than recommend illuminance causing inconvenience and inefficiency to the operator.<br> </p>";
 
             
              totalString="";
@@ -183,7 +230,7 @@ function mainCalculation(){
              for(var i=0;i<specData.length;i++){
                 if(i!=equipDropRef.value){
     
-                    if(i==6){
+                    if(i=3){
                         break;
                     }
                     tempdata["RatedCap"]=specData[i]["power"]
@@ -195,32 +242,76 @@ function mainCalculation(){
                     // console.log(tempcalc)
                     var total_inv=(tempcalc["investment"]);
                     var net_saving=monBill-tempcalc["Bill"];
+ 
                     var roi=Math.round(total_inv/net_saving);
-    
+                    
                     if( NTable<=tempcalc["Eav"]<=NTable+15){
     
     
-                        var tempString=`
-                        <tr>
-                        
-                        <td>${specData[i]["name"]}</td>
-                        <td>${specData[i]["power"]}</td>
-                        <td>${specData[i]["lumen"]}</td>
-                        <td>${specData[i]["System efficacy"]}</td>
-                     
-                        <td>${specData[i]["CRI"]}</td>
-                        
-                        <td>${specData[i]["Life"]}</td>
-                        <td>${specData[i]["Application"]}</td>
-                        <td>${Math.round(tempcalc["Eav"])}</td>
-                        
-                        <td>${tempcalc["N"]}</td>
-                        
-                        <td>${specData[i]["Cost per piece (Rs)"]}</td>
-                        <td>${total_inv}</td>
-                   
-                        
-                        </tr>`
+                        var tempString=`                    <div>
+                        <h4>Recommendation ${i+1}</h4>
+                        <hr>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Model Name</th>
+                                    <th scope="col">Power(W)</th>
+                                    <th scope="col">Lumen</th>
+                                    <th scope="col">System Efficacy(lm/W)</th>
+                                    <th scope="col">CRI</th>
+                                    <th scope="col">Life (10<sup>3</sup>)</th>
+                                    <th scope="col">Application</th>
+                                   
+    
+    
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <td>${specData[i]["name"]}</td>
+                            <td>${specData[i]["power"]}</td>
+                            <td>${specData[i]["lumen"]}</td>
+                            <td>${specData[i]["System efficacy"]}</td>
+                         
+                            <td>${specData[i]["CRI"]}</td>
+                            
+                            <td>${specData[i]["Life"]}</td>
+                            <td>${specData[i]["Application"]}</td>
+    
+    
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="mb-3 col-md-4">
+                                <label for="luminousEfficiency" class="form-label">Required Luminaries </label>
+                                <input type="text" class="form-control" value="${tempcalc["N"]}" readonly aria-readonly="true">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="luminousEfficiency" class="form-label">Energy Saving(units) </label>
+                                <input type="text" class="form-control" value="${Math.round(net_saving/Tarrif)}" readonly aria-readonly="true">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="luminousEfficiency" class="form-label">Cost(₹)</label>
+                                <input type="text" class="form-control" value=">${Math.round(net_saving)}" readonly aria-readonly="true">
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                        <div class="mb-3 col-md-4">
+                        <label for="luminousEfficiency" class="form-label">Total Investment(₹)</label>
+                        <input type="text" class="form-control" value="${specData[i]["Cost per piece (Rs)"]}" readonly aria-readonly="true">
+                        </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="luminousEfficiency" class="form-label">Total Investment(₹)</label>
+                                <input type="text" class="form-control" value="${total_inv}" readonly aria-readonly="true">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                                <label for="luminousEfficiency" class="form-label">Simple Payback(Months) </label>
+                                <input type="text" class="form-control" value="${roi}" readonly aria-readonly="true">
+                            </div>
+    
+                        </div>
+                    </div>`
+    
                         totalString+=tempString
                     }
                 
@@ -235,6 +326,7 @@ function mainCalculation(){
 
     
     calc=CalculateValues(data);
+    console.log("data",data)
     RecommnedationLight(data,calc["Bill"],calc["Eav"]);
     //console.log("Bill",calc["Bill"]);
     document.getElementById('dailyBill').value = (calc["Bill"]/DaysPerMonth).toFixed(2);
