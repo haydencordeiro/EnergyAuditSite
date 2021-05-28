@@ -183,14 +183,14 @@ function mainCalculation(){
                             <input type="number" class="form-control" value="${Math.round(net_saving/Tarrif)}" readonly aria-readonly="true">
                         </div>
                         <div class="mb-3 col-md-4">
-                            <label for="luminousEfficiency" class="form-label">Cost(₹)</label>
+                            <label for="luminousEfficiency" class="form-label">Cost Saving(₹)</label>
                             <input type="number" class="form-control" value="${Math.round(net_saving)}" readonly aria-readonly="true">
                         </div>
                     </div>
 
                     <div class="row">
                     <div class="mb-3 col-md-4">
-                    <label for="luminousEfficiency" class="form-label">Total Investment(₹)</label>
+                    <label for="luminousEfficiency" class="form-label">Cost Per Piece(₹)</label>
                     <input type="number" class="form-control" value="${specData[i]["Cost per piece (Rs)"]}" readonly aria-readonly="true">
                     </div>
                         <div class="mb-3 col-md-4">
@@ -297,7 +297,7 @@ function mainCalculation(){
     
                         <div class="row">
                         <div class="mb-3 col-md-4">
-                        <label for="luminousEfficiency" class="form-label">Total Investment(₹)</label>
+                        <label for="luminousEfficiency" class="form-label">Cost per Piece</label>
                         <input type="text" class="form-control" value="${specData[i]["Cost per piece (Rs)"]}" readonly aria-readonly="true">
                         </div>
                             <div class="mb-3 col-md-4">
