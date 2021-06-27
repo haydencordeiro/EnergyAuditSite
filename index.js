@@ -25,10 +25,11 @@ function onChangeEquipmentDropDown(){
     <td>${specData[i]["power"]}</td>
     <td>${specData[i]["lumen"]}</td>
     <td>${specData[i]["System efficacy"]}</td>
-    <td>${specData[i]["Color Temperature"]}</td>
-    <td>${specData[i]["CRI"]}</td>
-    <td>${specData[i]["Voltage (V)"]}</td>
     <td>${specData[i]["Life"]}</td>
+
+    <td>${specData[i]["CRI"]}</td>
+
+  
     <td>${specData[i]["Application"]}</td>
   
     

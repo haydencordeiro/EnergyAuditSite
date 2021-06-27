@@ -72,52 +72,53 @@
 
 
                             </select>
-
-                            <label for="buildingIdentification" class="form-label">Room Identification</label>
-                            <select class="form-select" aria-label="Select your building type"
-                                id="buildingIdentification" name="buildingIdentification">
-                                <!-- <option selected>Building Type</option>
-                                <optgroup label="Commerical Buildings"> -->
-                                <!-- <optgroup label="Offices"> -->
-                                <option value="0" selected></option>
-                                <option value="300">General Offices</option>
-                                <option value="500">Deep Plan General Offices</option>
-                                <option value="300">Computer Works Station</option>
-                                <option value="300">Conference Rooms, Executive Rooms</option>
-                                <option value="300">Computer and Data Preperation Rooms</option>
-                                <option value="200">Filing Rooms</option>
-                                <!-- </optgroup> -->
-
-
-                            </select>
+                            <div class="mb-3">
+                                <label for="rateType" class="form-label">Rate Type</label>
+                                <select class="form-select" aria-label="Select your rate type" id="rateType"
+                                    name="rateType">
+                                    <option selected></option>
+                                    <option value="1">Tiered</option>
+                                    <option value="2">Fixed</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tariff" class="form-label">Tariff</label>
+                                <input type="number" class="form-control" id="tariff" name="tariff"
+                                    aria-describedby="emailHelp">
+                                <div id="tariffHelp" class="form-text">Rs./Unit</div>
+                            </div>
+                        
                         </div>
-                        <div class="mb-3">
-                            <label for="rateType" class="form-label">Rate Type</label>
-                            <select class="form-select" aria-label="Select your rate type" id="rateType"
-                                name="rateType">
-                                <option selected></option>
-                                <option value="1">Tiered</option>
-                                <option value="2">Fixed</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tariff" class="form-label">Tariff</label>
-                            <input type="number" class="form-control" id="tariff" name="tariff"
-                                aria-describedby="emailHelp">
-                            <div id="tariffHelp" class="form-text">Rs./Unit</div>
-                        </div>
-                        <h5>Room Dimensions</h5>
+
+                        <h5>Workspace Details</h5>
+                        <label for="buildingIdentification" class="form-label">Room Identification</label>
+                        <select class="form-select" aria-label="Select your building type"
+                            id="buildingIdentification" name="buildingIdentification">
+                            <!-- <option selected>Building Type</option>
+                            <optgroup label="Commerical Buildings"> -->
+                            <!-- <optgroup label="Offices"> -->
+                            <option value="0" selected></option>
+                            <option value="300">General Offices</option>
+                            <option value="500">Deep Plan General Offices</option>
+                            <option value="300">Computer Works Station</option>
+                            <option value="300">Conference Rooms, Executive Rooms</option>
+                            <option value="300">Computer and Data Preperation Rooms</option>
+                            <option value="200">Filing Rooms</option>
+                            <!-- </optgroup> -->
+
+
+                        </select>
                         <div class="row">
                             <div class="mb-3 col-md-4">
-                                <label for="roomLength" class="form-label">Length (m)</label>
+                                <label for="roomLength" class="form-label">Length of Room(m)</label>
                                 <input type="number" class="form-control" id="roomLength" name="roomLength">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="roomWidth" class="form-label">Width (m)</label>
+                                <label for="roomWidth" class="form-label">Width of Room (m)</label>
                                 <input type="number" class="form-control" id="roomWidth" name="roomWidth">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="roomHeight" class="form-label">Mounting Height (m)</label>
+                                <label for="roomHeight" class="form-label">Mounting Height  (m)</label>
                                 <input type="number" class="form-control" id="roomHeight" name="roomHeight">
                             </div>
                         </div>
@@ -141,6 +142,8 @@
                         </div> -->
 
                         <div class="row">
+                        <h5>Luminare Details</h5>
+
                             <div class="mb-3 col-md-8">
                                 <label for="equipmentNameSingle" class="form-label">Luminaire Name</label>
                                 <select class="form-select" aria-label="Select your Equipment Name"
@@ -172,7 +175,7 @@
                                 <input type="number" class="form-control" id="NoOfLuminaries" name="NoOfLuminaries">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="DailyUsage" class="form-label">Daily Usage (hours)</label>
+                                <label for="DailyUsage" class="form-label">Operating hours per day</label>
                                 <input type="number" class="form-control" id="DailyUsage" name="DailyUsage">
                             </div>
                             <div class="mb-3 col-md-4">
@@ -195,14 +198,11 @@
                         <th scope="col">Model Name</th>
                         <th scope="col">Power(W)</th>
                         <th scope="col">Lumen</th>
-                        <th scope="col">System Efficacy (lm/W)</th>
-                        <th scope="col">Color Temperature</th>
-                        <th scope="col">CRI</th>
-                        <th scope="col">Voltage (V)</th>
-
-
+                        <th scope="col">Start Rating (lm/W)</th>
                         <th scope="col">Life (10<sup>3</sup>)</th>
-                        <th scope="col">Application</th>
+                        <th scope="col">CRI</th>
+   
+                        <th scope="col">Applications</th>
 
                     </tr>
                 </thead>
@@ -217,7 +217,7 @@
                     <h4 style="font-size: 26px;font-weight:bold" class="card-title">Calculated Results</h4>
                     <hr>
                     <form>
-                        <!-- <h6>Fitting Specifications</h6>
+                        <!-- <h5>Fitting Specifications</h5>
                         <div class="row">
                             <div class="mb-3 col-md-4">
                                 <label for="roomIndex" class="form-label">Room Index</label>
@@ -232,8 +232,16 @@
                                 <input type="number" class="form-control" id="eav" name="eav" disabled>
                             </div> 
                         </div>-->
-                        <h6>Energy Consumption and Bill</h6>
+                        <h5>Energy Consumption and Bill</h5>
                         <div class="row">
+                            <div class="row">
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="monthlyBill" class="form-label">Estimated Circuit Watts</label>
+                                    <input type="number" class="form-control" id="estimateCircuit" name="estimateCircuit" readonly
+                                        aria-readonly="true">
+                                </div>
+                            </div>
                             <div class="mb-3 col-md-6">
                                 <label for="monthlyConsumption" class="form-label">Monthly Energy Consumption
                                     (units)</label>
@@ -245,9 +253,9 @@
 
 
                             <div class="mb-3 col-md-6">
-                                <label for="dailyBill" class="form-label">Daily Bill (₹)</label>
+                                <label for="dailyBill" class="form-label" hidden>Daily Bill (₹)</label>
                                 <input type="number" class="form-control" id="dailyBill" name="dailyBill" readonly
-                                    aria-readonly="true">
+                                    aria-readonly="true" hidden> 
                             </div>
                         </div>
                         <div class="row">
@@ -262,12 +270,12 @@
                         <div class="row">
 
                             <div class="mb-3 col-md-6">
-                                <label for="yearlyBill" class="form-label">Yearly Bill (₹)</label>
+                                <label for="yearlyBill" class="form-label">Annual Bill (₹)</label>
                                 <input type="number" class="form-control" id="yearlyBill" name="yearlyBill" readonly
                                     aria-readonly="true">
                             </div>
                         </div>
-                        <h6>Benchmarks</h6>
+                        <h5>Benchmarks</h5>
                         <div class="row">
                             <div class="mb-3 col-md-4">
                                 <label for="luminousEfficiency" class="form-label">Luminous Efficacy (lm/W)</label>
@@ -285,47 +293,50 @@
                                 <input type="number" class="form-control" id="epi" name="epi" readonly
                                     aria-readonly="true">
                             </div>
-                            <h6>Room Design</h6>
+                            <h5>Room Design For Existing Luminaires</h5>
 
                             <div class="mb-3 col-md-4">
-                                <label for="nooflights" class="form-label">Required number of Lights</label>
+                                <label for="nooflights" class="form-label">Required number of Luminaires</label>
                                 <input type="number" class="form-control" id="nooflights" name="nooflights" readonly
                                     aria-readonly="true">
                             </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="Eav" class="form-label">Calculated Illuminance </label>
-                                <input type="number" class="form-control" id="Eav" name="Eav" readonly
-                                    aria-readonly="true">
-                            </div>
-
+  
                         </div>
-                        <h6>Spacing Between Luminaries</h6>
+                        <!-- <h5>Spacing Between Luminaries</h5> -->
 
                         <div class="row">
                             <div class="mb-3 col-md-4">
-                                <label for="rows" class="form-label">Rows</label>
+                                <label for="rows" class="form-label"> No of Lamps along Length</label>
                                 <input type="number" class="form-control" id="rows" name="rows" readonly
                                     aria-readonly="true">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="cols" class="form-label">Columns</label>
+                                <label for="cols" class="form-label">No of Lamps along Width</label>
                                 <input type="number" class="form-control" id="cols" name="cols" readonly
                                     aria-readonly="true">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-4">
-                                <label for="rows" class="form-label">Distance between Luminaries along Length
+                                <label for="rows" class="form-label">Spacing between Luminaries along Length
                                     (m)</label>
                                 <input type="number" class="form-control" id="deltax" name="deltax" readonly
                                     aria-readonly="true">
                             </div>
                             <div class="mb-3 col-md-4">
-                                <label for="cols" class="form-label">Distance between Luminaries along width (m)</label>
+                                <label for="cols" class="form-label">Spacing between Luminaries along Width (m)</label>
                                 <input type="number" class="form-control" id="deltay" name="deltay" readonly
                                     aria-readonly="true">
                             </div>
                         </div>
+                        <h5>Average Room Illuminance</h5>
+
+                        <div class="mb-3 col-md-4">
+                            <!-- <label for="Eav" class="form-label">Calculated Illuminance </label> -->
+                            <input type="number" class="form-control" id="Eav" name="Eav" readonly
+                                aria-readonly="true">
+                        </div>
+
                     </form>
                     <hr>
                     <p id="message-here"></p>
@@ -372,7 +383,7 @@
     </script>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH5WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
     <!-- <script>
         document.getElementById('equipmentCountDiv').style.display = 'none';

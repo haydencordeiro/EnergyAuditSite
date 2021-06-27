@@ -117,16 +117,18 @@ function mainCalculation(){
     }
 
     function RecommnedationLight(data,monBill,currEav){
+
         var tempdata={}
         const recTable=document.getElementById("rec-table-body")
         Object.assign(tempdata, data);
         var totalString="";
         for(var i=0;i<specData.length;i++){
-            if(i!=equipDropRef.value){
+            if(i!=equipDropRef.value){  
 
                 if(i==3){
                     break;
                 }
+                // console.log(tempdata);
                 tempdata["RatedCap"]=specData[i]["power"]
                 tempdata["Lumens"]=specData[i]["lumen"]
                 tempdata["calcN"]=true
@@ -140,6 +142,9 @@ function mainCalculation(){
  
                 if(tempcalc["Bill"]<monBill && NTable<=tempdata["Eav"]<=currEav){
 
+                    var ECP=specData[i]["power"]*tempcalc["N"];
+                    var MEC=((tempdata["DaysPerMonth"]*tempdata["DailyUsage"]*ECP)/1000).toFixed(2)
+
                     var tempString=`     
                     <br>
                     <br>               <div>
@@ -151,10 +156,11 @@ function mainCalculation(){
                                 <th scope="col">Model Name</th>
                                 <th scope="col">Power(W)</th>
                                 <th scope="col">Lumen</th>
-                                <th scope="col">System Efficacy(lm/W)</th>
-                                <th scope="col">CRI</th>
+                                <th scope="col">Star Rating(lm/W)</th>
                                 <th scope="col">Life (10<sup>3</sup>)</th>
-                                <th scope="col">Application</th>
+                                <th scope="col">CRI</th>
+                                <th scope="col">Applications</th>
+                                <th scope="col">Cost Per Peice (₹)</th>
                             
 
                             </tr>
@@ -165,44 +171,54 @@ function mainCalculation(){
                         <td>${specData[i]["lumen"]}</td>
                         <td>${specData[i]["System efficacy"]}</td>
                      
+                        <td>${specData[i]["Life"]}</td>
                         <td>${specData[i]["CRI"]}</td>
                         
-                        <td>${specData[i]["Life"]}</td>
                         <td>${specData[i]["Application"]}</td>
+                        <td>${specData[i]["Cost per piece (Rs)"]}</td>
 
 
                         </tbody>
                     </table>
                     <div class="row">
                         <div class="mb-3 col-md-4">
-                            <label for="luminousEfficiency" class="form-label">Required Luminaries </label>
+                            <label for="luminousEfficiency" class="form-label">Required Number of Luminaries </label>
                             <input type="number" class="form-control" value="${tempcalc["N"]}" readonly aria-readonly="true">
                         </div>
                         <div class="mb-3 col-md-4">
-                            <label for="luminousEfficiency" class="form-label">Energy Saving(units) </label>
+                        <label for="luminousEfficiency" class="form-label">Estimated Circuit Power (Watts)</label>
+                        <input type="number" class="form-control" value="${ECP}" readonly aria-readonly="true">
+                    </div>
+                    </div>
+                    <div class="row">
+                    <h5>Savings Potential</h5>
+                    <div class="mb-3 col-md-4">
+                    <label for="luminousEfficiency" class="form-label">Monthly Energy Consumption(units) </label>
+                    <input type="number" class="form-control" value="${MEC}" readonly aria-readonly="true">
+                </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="luminousEfficiency" class="form-label">Energy Reduction Per Month(units) </label>
                             <input type="number" class="form-control" value="${Math.round(net_saving/Tarrif)}" readonly aria-readonly="true">
                         </div>
                         <div class="mb-3 col-md-4">
-                            <label for="luminousEfficiency" class="form-label">Cost Saving(₹)</label>
+                            <label for="luminousEfficiency" class="form-label">Monthly Monetary Saving(₹)</label>
                             <input type="number" class="form-control" value="${Math.round(net_saving)}" readonly aria-readonly="true">
                         </div>
                     </div>
 
                     <div class="row">
-                    <div class="mb-3 col-md-4">
-                    <label for="luminousEfficiency" class="form-label">Cost Per Piece(₹)</label>
-                    <input type="number" class="form-control" value="${specData[i]["Cost per piece (Rs)"]}" readonly aria-readonly="true">
-                    </div>
+            
                         <div class="mb-3 col-md-4">
                             <label for="luminousEfficiency" class="form-label">Total Investment(₹)</label>
                             <input type="number" class="form-control" value="${total_inv}" readonly aria-readonly="true">
                         </div>
                         <div class="mb-3 col-md-4">
-                            <label for="luminousEfficiency" class="form-label">Simple Payback(Months) </label>
+                            <label for="luminousEfficiency" class="form-label">Simple Payback Period (Months) </label>
                             <input type="number" class="form-control" value="${roi}" readonly aria-readonly="true">
                         </div>
 
                     </div>
+      
                 </div>`
 
                     totalString+=tempString
@@ -260,7 +276,7 @@ function mainCalculation(){
                                     <th scope="col">System Efficacy(lm/W)</th>
                                     <th scope="col">CRI</th>
                                     <th scope="col">Life (10<sup>3</sup>)</th>
-                                    <th scope="col">Application</th>
+                                    <th scope="col">Applications</th>
                                    
     
     
@@ -326,7 +342,7 @@ function mainCalculation(){
 
     
     calc=CalculateValues(data);
-    console.log("data",data)
+    console.log("data",calc)
     RecommnedationLight(data,calc["Bill"],calc["Eav"]);
     //console.log("Bill",calc["Bill"]);
     document.getElementById('dailyBill').value = (calc["Bill"]/DaysPerMonth).toFixed(2);
@@ -334,6 +350,7 @@ function mainCalculation(){
     document.getElementById('yearlyBill').value = (calc["Bill"]*12).toFixed(2);
     //console.log("MEC",calc["MEC"]);
     document.getElementById('monthlyConsumption').value = calc["MEC"].toFixed(2);
+    document.getElementById('estimateCircuit').value = DaysPerMonth*NoOfLuminaries;
     //console.log("RI",RI);
     // document.getElementById('roomIndex').value = RI;
     //console.log("N",N);
