@@ -122,6 +122,7 @@ function mainCalculation(){
         const recTable=document.getElementById("rec-table-body")
         Object.assign(tempdata, data);
         var totalString="";
+        var recNo=1;
         for(var i=0;i<specData.length;i++){
             if(i!=equipDropRef.value){  
 
@@ -148,7 +149,7 @@ function mainCalculation(){
                     var tempString=`     
                     <br>
                     <br>               <div>
-                    <h4>Recommendation ${i+1} </h4>
+                    <h4>Recommendation ${recNo} </h4>
                     <hr>
                     <table class="table">
                         <thead>
@@ -222,6 +223,7 @@ function mainCalculation(){
                 </div>`
 
                     totalString+=tempString
+                    recNo+=1
                 }
                 
                 
